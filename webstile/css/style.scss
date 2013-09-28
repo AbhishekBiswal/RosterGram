@@ -78,13 +78,13 @@ $light-grey: #ecf0f1;
 
 /* Colors */
 $prim-color: #34495e;
-$sec-color: #3498db;
+$sec-color: #1abc9c;
 
 $body-background-color: #ecf0f1;
 
-$color-1-color: tomato;
-$color-2-color: gold;
-$color-3-color: $prim-color;
+$color-1-color: $prim-color;
+$color-2-color: $sec-color;
+$color-3-color: #f1c40f;
 $color-4-color: $grey;
 $color-5-color: gainsboro;
 $color-6-color: saddlebrown;
@@ -153,7 +153,7 @@ a:hover, a:active, a:focus {
    ========================================================================== */
 
 p { margin: 0; }
-p + p { margin-top: 1.5em; }
+p + p { margin-top: 1em; }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
@@ -459,7 +459,8 @@ input[type='button'], input[type='submit'], button, .button {
   cursor: pointer;
   padding: 1em 1.5em;
   color: white;
-  border: .25em solid;
+  border: .2em solid;
+  border-radius: .2em;
 
   -webkit-transition: all .3s ease;
   -moz-transition: all .3s ease;
@@ -472,48 +473,50 @@ input[type='button'], input[type='submit'], button, .button {
   margin-bottom: .75rem;  
 }
 
+$btn-intensity: 5%;
 
-.btn-primary {
-  background: $prim-color;
-  border-color: darken($prim-color, 10%);
-
-  &:hover {
-    background: darken($prim-color, 10%);
-    border-color: $prim-color;
-  }
-  
-  &:focus, &:active {
-    background: darken($prim-color, 10%);
-  }
-}
-
-.btn-secondary { 
+.btn-primary { 
   background: $sec-color;
-  border-color: darken($sec-color, 10%);
+  border-color: darken($sec-color, $btn-intensity);
   
   &:hover {
-    background: darken($sec-color, 10%);
+    background: darken($sec-color, $btn-intensity);
     border-color: $sec-color;
   }
 
   &:focus, &:active {
-    background: darken($sec-color, 10%);
+    background: darken($sec-color, $btn-intensity);
   }
 }
 
+.btn-secondary {
+  background: $prim-color;
+  border-color: darken($prim-color, $btn-intensity);
+
+  &:hover {
+    background: darken($prim-color, $btn-intensity);
+    border-color: $prim-color;
+  }
+  
+  &:focus, &:active {
+    background: darken($prim-color, $btn-intensity);
+  }
+}
+
+$btn-tertiary-color: darken($body-background-color, 20%);
 
 .btn-tertiary {
   font-size: .875em;
-  background: $light-grey;
-  border-color: darken($light-grey, 10%);
+  background: $btn-tertiary-color;
+  border-color: darken($btn-tertiary-color, $btn-intensity);
 
   &:hover {
-    background: darken($light-grey, 10%);
-    border-color: $light-grey;
+    background: darken($btn-tertiary-color, $btn-intensity);
+    border-color: $btn-tertiary-color;
   }
 
   &:focus, &:active {
-    background: darken($light-grey, 10%);
+    background: darken($btn-tertiary-color, $btn-intensity);
   }
 }
 
@@ -539,7 +542,7 @@ input[type='button'], input[type='submit'], button, .button {
    =CARD
    ========================================================================== */
 
-$card-color: #1abc9c;
+$card-color: $sec-color;
 
 .home-card {
   background: white;

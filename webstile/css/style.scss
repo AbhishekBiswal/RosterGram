@@ -79,12 +79,13 @@ $light-grey: #ecf0f1;
 /* Colors */
 $prim-color: #34495e;
 $sec-color: #1abc9c;
+$tertiary-color: #f1c40f;
 
 $body-background-color: #ecf0f1;
 
 $color-1-color: $prim-color;
 $color-2-color: $sec-color;
-$color-3-color: #f1c40f;
+$color-3-color: $tertiary-color;
 $color-4-color: $grey;
 $color-5-color: gainsboro;
 $color-6-color: saddlebrown;
@@ -130,8 +131,7 @@ body, input, textarea, button, form, select {
 
 a, a:link, a:visited { 
   text-decoration: none;
-  color: $prim-color;
-  border-bottom: thin solid transparent;
+  color: $sec-color;
 
   -webkit-transition: all .3s ease;
   -moz-transition: all .3s ease;
@@ -141,7 +141,7 @@ a, a:link, a:visited {
 }
 
 a:hover, a:active, a:focus {
-  border-bottom-color: #ddd;
+  color: darken($sec-color, 10%);
 }
 
 
@@ -552,6 +552,17 @@ $card-color: $sec-color;
   text-align: center;
   position: relative;
   perspective: 10em;
+
+  &:hover {
+    .home-card__text {
+      opacity: 1;
+      bottom: 0;
+      transform: translate3d(0, 0, 0);
+    }
+    .team-colors {
+      opacity: 1;
+    }
+  }
 }
 
 .home-card__text {
@@ -577,12 +588,6 @@ $card-color: $sec-color;
   opacity: 0;
   bottom: -25%;
   transform: translate3d(0, 0, -2em);
-}
-
-.home-card:hover .home-card__text {
-  opacity: 1;
-  bottom: 0;
-  transform: translate3d(0, 0, 0);
 }
 
 .home-card__img {
@@ -620,7 +625,26 @@ $card-color: $sec-color;
   }
 }
 
+.team-colors {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .7;
+  transition: all .3s ease;
 
+  span {
+    width: 2.5em;
+    height: 2.5em;
+    background: $tertiary-color;
+    display: block;
+    float: left;
+    line-height: 1;
+
+    + span {
+      background: $prim-color;
+    }
+  }
+}
 
 
 
@@ -635,4 +659,6 @@ $card-color: $sec-color;
   padding: 1.714em 0;
   border-top: thin solid #eee;
   margin-top: 1.714em;
+  background: $prim-color;
+  color: lighten($prim-color, 30%);
 }

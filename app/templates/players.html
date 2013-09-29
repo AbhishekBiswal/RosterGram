@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<a href="/dash/add-player?team={{ teamID }}">Add Player to this team</a>
+
+<h1>Players of Team #{{ teamID }} (click on team to add a new player to that team):</h1>
+{% for item in db.session.query(Players) %}
+    <li><a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a></li>
+{% endfor %}
+
+
+{% endblock %}

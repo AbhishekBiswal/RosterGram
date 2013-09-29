@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>Add Team</h1><br>
+<form class="add-team" action="/dash/add-player/sub" method="post">
+	<input type="text" name="name" placeholder="player name">
+	<input type="text" name="ig" placeholder="instagram id">
+	<input type="hidden" name="teamID" value="{{ teamID }}">
+	<input type="submit" value="Go">
+</form>
+
+{% endblock %}

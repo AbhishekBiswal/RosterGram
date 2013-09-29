@@ -12,3 +12,30 @@ class Admin(db.Model):
 	def __init__(self, username, password):
 		self.username = username
 		self.password = password
+
+class Team(db.Model):
+	__tablename__ = 'teams'
+	tid = db.Column(db.Integer, primary_key = True)
+	teamname = db.Column(db.String(100))
+	colorone = db.Column(db.String(100))
+	colortwo = db.Column(db.String(100))
+
+	def __init__(self, teamname, colorone, colortwo):
+		self.teamname = teamname
+		self.colorone = colorone
+		self.colortwo = colortwo
+
+	def disp(self):
+		Team.query.all()
+
+class Players(db.Model):
+	__tablename__ = 'players'
+	pid = db.Column(db.Integer, primary_key = True)
+	name = db.Column(db.String(100))
+	ig = db.Column(db.String(100))
+	team = db.Column(db.String(100))
+
+	def __init__(self, name, ig, team):
+		self.name = name
+		self.ig = ig
+		self.team = team

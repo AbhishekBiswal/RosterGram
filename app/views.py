@@ -4,7 +4,7 @@ from models import db, Admin, Team, Players
 
 @app.route("/")
 def home():
-	return "Works! Yeah!"
+	return render_template("home.html", pageTitle="RosterGram Home")
 
 @app.route("/admin")
 def adminHome():

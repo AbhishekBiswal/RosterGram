@@ -2,9 +2,18 @@ from app import app
 from flask import Flask, Response, redirect, render_template, session, request
 from models import db, Admin, Team, Players
 
+from instagram.client import InstagramAPI
+api = InstagramAPI(client_id='d2c650e6e9ea41e4a77d3d7cf56f9919', client_secret='323783a9221f456fa454736f53a61d57', access_token='398127879.d2c650e.be22d091d3b944bcaf9e2942dd0047fc')
+
 @app.route("/")
 def home():
-	return render_template("home.html", pageTitle="RosterGram Home")
+	recent_media, next = api.user_recent_media(user_id=398127879, count=2)
+	# popular_media = api.user('abhishekbiswal')
+	#popular_media = api.media_popular(count=20)
+	#photos = []
+	# for media in recent_media:
+	# 	photos.append('<img src="%s"/>' % media.images['thumbnail'].url)
+	return render_template("home.html", pageTitle="RosterGram Home", recent_media= recent_media)
 
 @app.route("/admin")
 def adminHome():

@@ -94,3 +94,8 @@ def addPlayerSub():
 	db.session.add(newPlayer)
 	db.session.commit()
 	return "added"
+
+@app.route("/team/<teamid>", methods=['GET'])
+def teamPage(teamid):
+	loadPlayers = Players.query.filter_by(team = teamid)
+	return render_template("teampage.html", pageTitle = "Team Page", Players=Players, teamid=teamid, db=db)

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ pageTitle }}</title>
+</head>
+<body>
+
+{% for item in db.session.query(Players).filter_by(team = team_id) %}
+aaa
+    <li><a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a></li>
+{% endfor %}
+
+</body>
+</html>

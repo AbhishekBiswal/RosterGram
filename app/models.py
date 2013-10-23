@@ -33,7 +33,7 @@ class Players(db.Model):
 	pid = db.Column(db.Integer, primary_key = True)
 	name = db.Column(db.String(100))
 	ig = db.Column(db.String(100))
-	team = db.Column(db.String(100))
+	team = db.Column(db.Integer)
 
 	def __init__(self, name, ig, team):
 		self.name = name

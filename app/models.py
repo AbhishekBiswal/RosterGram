@@ -34,8 +34,10 @@ class Players(db.Model):
 	name = db.Column(db.String(100))
 	ig = db.Column(db.String(100))
 	team = db.Column(db.Integer)
+	userid = db.Column(db.Integer)
 
-	def __init__(self, name, ig, team):
+	def __init__(self, name, ig, team, userid):
 		self.name = name
 		self.ig = ig
 		self.team = team
+		self.userid = userid

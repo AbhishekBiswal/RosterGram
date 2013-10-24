@@ -5,10 +5,21 @@
 </head>
 <body>
 
-{% for item in db.session.query(Players).filter_by(team = team_id) %}
-aaa
-    <li><a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a></li>
+<h1>{{ teamName }}</h1>
+
+<div>
+	
+{% for x in list %}
+	
+	<div>
+		<h2>Name : {{ x[0] }}</h2>
+		<br>
+		<img src="{{ x[4] }}">
+	</div>
+
 {% endfor %}
+
+</div>
 
 </body>
 </html>

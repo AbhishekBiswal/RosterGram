@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<!--
+	use these inside the for loop ( below ) only.
+	x[0] -> player name
+	x[1] -> player instagram username
+	x[2] -> instagram <numeric> id - no need.
+	x[3] -> player's latest picture.
+-->
 <html>
 <head>
 	<title>{{ pageTitle }}</title>
@@ -14,7 +21,7 @@
 	<div>
 		<h2>Name : {{ x[0] }}</h2>
 		<br>
-		<img src="{{ x[4] }}">
+		<img src="{{ x[3] }}">
 	</div>
 
 {% endfor %}

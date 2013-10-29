@@ -6,14 +6,6 @@
 </head>
 <body>
 
-<!-- AB -->
-
-{% for media in recent_media %}
-    <img src="{{ media.images['standard_resolution'].url }}">
-{% endfor %}
-
-<!-- / AB -->
-
 <header class="masthead" role="banner"><div class="wrap">
 	<div class="logo">
 		<h1>RosterGram</h1>
@@ -34,6 +26,33 @@
 	<div class="content" role="main">
 		<div class="stack stack-sympl home-card-container">
 
+
+			{% for media in recent_media %}
+				<div class="sympl onethird m-full">
+					<section class="home-card">
+						<a href="#" class="home-card__img">
+							<img src="{{ media.images['standard_resolution'].url }}">
+						</a>
+
+						<footer class="team-colors">
+							<span></span>
+							<span></span>
+						</footer>
+
+						<div class="home-card__text">
+							<h1 class="home-card__title">
+								<a href="#">&lsquo;A Long Title Or Caption of the image&rsquo;</a>
+							</h1>
+							<div class="home-card__by"> by <a href="#">Player Name</a> of College Name Of State</div>
+							<footer class="home-card__meta">
+								<a href="#"><i class="icon-chat"></i></a>
+							</footer>
+						</div>
+					</section>
+				</div>
+			{% endfor %}
+
+			<!-- 
 			<div class="sympl onethird m-full">
 				<section class="home-card">
 					<a href="#" class="home-card__img">
@@ -56,138 +75,13 @@
 					</div>
 				</section>
 			</div>
-
-			<div class="sympl onethird m-full">
-				<section class="home-card">
-					<a href="#" class="home-card__img">
-						<img src="http://farm3.staticflickr.com/2125/2112036135_f326a6f61f_z.jpg?zz=1">
-					</a>
-
-					<footer class="team-colors">
-						<span></span>
-						<span></span>
-					</footer>
-
-					<div class="home-card__text">
-						<h1 class="home-card__title">
-							<a href="#">&lsquo;A Long Title Or Caption of the image&rsquo;</a>
-						</h1>
-						<div class="home-card__by"> by <a href="#">Player Name</a> of College Name Of State</div>
-						<footer class="home-card__meta">
-							<a href="#"><i class="icon-chat"></i></a>
-						</footer>
-					</div>
-				</section>
-			</div>
-
-			<div class="sympl onethird m-full">
-				<section class="home-card">
-					<a href="#" class="home-card__img">
-						<img src="http://farm3.staticflickr.com/2125/2112036135_f326a6f61f_z.jpg?zz=1">
-					</a>
-
-					<footer class="team-colors">
-						<span></span>
-						<span></span>
-					</footer>
-
-					<div class="home-card__text">
-						<h1 class="home-card__title">
-							<a href="#">&lsquo;A Long Title Or Caption of the image&rsquo;</a>
-						</h1>
-						<div class="home-card__by"> by <a href="#">Player Name</a> of College Name Of State</div>
-						<footer class="home-card__meta">
-							<a href="#"><i class="icon-chat"></i></a>
-						</footer>
-					</div>
-				</section>
-			</div>
-
-			
-		</div>
-
-
-
-
-		<div class="stack">
-			<div class="sympl half m-full">
-				
-				<section class="ws-item ws-colors">
-					<h1>Colors</h1>
-					<div class="stack stack-clean">
-						<div class="sympl onesixth s-half">
-							<div class="color-1"></div>
-						</div>
-						<div class="sympl onesixth s-half">
-							<div class="color-2"></div>
-						</div>
-						<div class="sympl onesixth s-half">
-							<div class="color-3"></div>
-						</div>
-						<div class="sympl onesixth s-half">
-							<div class="color-4"></div>
-						</div>
-						<div class="sympl onesixth s-half">
-							<div class="color-5"></div>
-						</div>
-					</div>
-				</section><!-- /.ws-colors -->
-
-				<section class="ws-item ws-adjectives">
-					<!-- ## Describe the project here -->
-					<h1>Adjectives</h1>
-					<div class="stack">
-						<div class="sympl onethird s-half">
-							Beautiful
-						</div>
-						<div class="sympl onethird s-half">
-							Clean
-						</div>
-						<div class="sympl onethird s-half">
-							Colorful
-						</div>
-						<div class="sympl onethird s-half">
-							Simple
-						</div>
-						<div class="sympl onethird s-half">
-							Bright
-						</div>
-						<div class="sympl onethird s-half">
-							Modern
-						</div>
-					</div>
-				</section><!-- /.ws-adjectives -->
-			</div>
-
-
-			<div class="sympl half m-full">
-
-				<section class="ws-item ws-typography">
-					<h1>Typography</h1>
-					<aside>
-						<h1>Lorem ipsum dolor sit amet.</h1>
-						<h2>Lorem ipsum dolor sit amet.</h2>
-						<h3>Lorem ipsum dolor sit amet.</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, <a href="#">A link</a> aliquam commodi deserunt corporis repellat facere? Suscipit, minus totam eveniet iste non tempora <em>consectetur</em> deserunt dicta <strong>voluptates</strong> ipsam facere quidem magni.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, quae, nobis amet at vero illo provident rem quos debitis distinctio maiores dolor qui sapiente veniam earum atque similique quibusdam?</p>
-					</aside>
-				</section><!-- /.ws-typography -->
-
-				<section class="ws-item ws-form">
-					<h1>Buttons</h1>
-					<button class="button btn-primary">Primary Button</button>
-					<button class="button btn-secondary">Secondary Button</button>
-					<button class="button btn-tertiary">Tertiary Button</button>
-				</section><!-- /.ws-form -->
-
-			</div>
+			-->
 		</div>
 	</div>
 	</div>
 
 	<footer class="colophon site-footer" role="contentinfo"><div class="wrap">
-		<!-- ## REMEMBER TO CHANGE THIS! -->
-		<p>RosterGram Webstile v1.0<br></p>
+		<p>RosterGram &copy; 2013. Designed by <a href="http://namanyayg.com/">Namanyay Goel</a><br></p>
 	</div></footer><!-- FOOTER -->
 </div>
 

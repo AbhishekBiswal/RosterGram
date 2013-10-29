@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ pageTitle }}</title>
+</head>
+<body>
+
+<h1>{{ teamName }}</h1>
+
+<div>
+	
+{% for x in list %}
+	
+	<div>
+		<h2>Name : {{ x[0] }}</h2>
+		<br>
+		<img src="{{ x[4] }}">
+	</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

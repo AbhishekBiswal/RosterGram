@@ -26,7 +26,8 @@
 	<div class="content" role="main">
 		<div class="stack stack-sympl home-card-container">
 
-
+		{% for item in db.session.query(Players) %}
+		{% set recent_media, next = api.user_recent_media(user_id=item.userid, count=1) %}
 			{% for media in recent_media %}
 				<div class="sympl onethird m-full">
 					<section class="home-card">
@@ -50,6 +51,7 @@
 						</div>
 					</section>
 				</div>
+			{% endfor %}
 			{% endfor %}
 
 			<!-- 

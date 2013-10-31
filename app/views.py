@@ -10,13 +10,9 @@ api = InstagramAPI(client_id='d2c650e6e9ea41e4a77d3d7cf56f9919', client_secret='
 
 @app.route("/")
 def home():
+	loadPlayers = Players.query.limit(10)
 	recent_media, next = api.user_recent_media(user_id=398127879, count=2)
-	# popular_media = api.user('abhishekbiswal')
-	#popular_media = api.media_popular(count=20)
-	#photos = []
-	# for media in recent_media:
-	# 	photos.append('<img src="%s"/>' % media.images['thumbnail'].url)
-	return render_template("home.html", pageTitle="RosterGram Home", recent_media= recent_media)
+	return render_template("home.html", pageTitle="RosterGram Home", recent_media= recent_media, Players=Players, db=db, api=api)
 
 @app.route("/admin")
 def adminHome():

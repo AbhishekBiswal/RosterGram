@@ -27,7 +27,7 @@
 			"file": "app/views.py",
 			"settings":
 			{
-				"buffer_size": 4679,
+				"buffer_size": 4546,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +35,15 @@
 			"file": "app/templates/teampage.html",
 			"settings":
 			{
-				"buffer_size": 247,
+				"buffer_size": 436,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/templates/home.html",
+			"settings":
+			{
+				"buffer_size": 2484,
 				"line_ending": "Unix"
 			}
 		},
@@ -44,30 +52,6 @@
 			"settings":
 			{
 				"buffer_size": 304,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/templates/home.html",
-			"settings":
-			{
-				"buffer_size": 2338,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/templates/add-player.html",
-			"settings":
-			{
-				"buffer_size": 371,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/templates/players.html",
-			"settings":
-			{
-				"buffer_size": 445,
 				"line_ending": "Unix"
 			}
 		}
@@ -99,6 +83,10 @@
 	},
 	"file_history":
 	[
+		"/home/ab/projects/flask/rg/app/templates/players.html",
+		"/home/ab/projects/flask/rg/app/templates/add-player.html",
+		"/home/ab/projects/flask/rg/app/templates/home.html",
+		"/home/ab/projects/flask/rg/app/templates/dash.html",
 		"/home/ab/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/ab/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings"
 	],
@@ -136,7 +124,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -162,7 +150,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 57.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -180,8 +168,8 @@
 						"selection":
 						[
 							[
-								153,
-								153
+								304,
+								304
 							]
 						],
 						"settings":
@@ -200,15 +188,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4679,
+						"buffer_size": 4546,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2344,
-								2344
+								728,
+								728
 							]
 						],
 						"settings":
@@ -217,7 +205,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2451.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -228,20 +216,21 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 247,
+						"buffer_size": 436,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								194,
-								194
+								383,
+								383
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -251,6 +240,34 @@
 				},
 				{
 					"buffer": 4,
+					"file": "app/templates/home.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2484,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								754,
+								754
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 706.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "app/templates/dash.html",
 					"semi_transient": false,
 					"settings":
@@ -262,90 +279,8 @@
 						"selection":
 						[
 							[
-								224,
-								224
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/templates/home.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2338,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 285.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/templates/add-player.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 371,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/templates/players.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 445,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								386,
-								386
+								156,
+								156
 							]
 						],
 						"settings":
@@ -404,6 +339,14 @@
 		"selected_items":
 		[
 			[
+				"dash",
+				"templates/dash.html"
+			],
+			[
+				"home",
+				"templates/home.html"
+			],
+			[
 				"team",
 				"templates/teampage.html"
 			],
@@ -428,10 +371,6 @@
 				"templates/add-player.html"
 			],
 			[
-				"home",
-				"templates/home.html"
-			],
-			[
 				"views",
 				"views.py"
 			],
@@ -444,11 +383,15 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"~/projects/flask/rg/rg.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{
@@ -464,7 +407,7 @@
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 150.0,
 	"status_bar_visible": true,
 	"template_settings":

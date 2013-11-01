@@ -42,11 +42,11 @@
 
 						<div class="home-card__text">
 							<h1 class="home-card__title">
-								<a href="#">&lsquo;A Long Title Or Caption of the image&rsquo;</a>
+								<a href="#">&lsquo;{{ media.caption }}&rsquo;</a>
 							</h1>
-							<div class="home-card__by"> by <a href="#">Player Name</a> of College Name Of State</div>
+							<div class="home-card__by"> by <a href="#">{{ item.name }}</div>
 							<footer class="home-card__meta">
-								<a href="#"><i class="icon-chat"></i></a>
+								<a target="_blank" href="{{ media.link }}"><i class="icon-chat"></i></a>
 							</footer>
 						</div>
 					</section>

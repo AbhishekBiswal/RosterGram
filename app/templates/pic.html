@@ -7,11 +7,10 @@
 
 <h1>{{ player.name }}</h1>
 
-<img src="{{ picture }}">
-
+{% for media in recent_media %}
+<img src="{{ media.images['standard_resolution'].url }}">
+{% endfor %}
 <br>
-
-No. of Comments : {{ no_of_comments }}
 
 <br>
 

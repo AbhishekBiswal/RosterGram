@@ -136,10 +136,8 @@ def picPage(pid):
 	pData = Players.query.filter_by(pid=pid).first()
 	if pData is None:
 		return "404"
-	recent_media, next = api.user_recent_media(user_id=pData.userid, count=1)
-	for media in recent_media:
-		picture = media.images['standard_resolution'].url
-	return render_template("pic.html", pageTitle="Picture.", player=pData, picture=picture)
+	recent_media, next = api.user_recent_media(user_id=pData.userid, count=10)
+	return render_template("pic.html", pageTitle="Picture.", player=pData, recent_media=recent_media)
 
 
 @app.route("/test")

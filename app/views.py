@@ -129,6 +129,21 @@ def teamPage(teamid):
 
 	return render_template("teampage.html", pageTitle = "Team Page", Players=Players, teamid=teamid, db=db, teamName=teamName, list=list, media=media)
 
+@app.route("/p/<pid>")
+def picPage(pid):
+	if pid == "":
+		return redirect("/")
+	pData = Players.query.filter_by(pid=pid).first()
+	if pData is None:
+		return "404"
+	recent_media, next = api.user_recent_media(user_id=pData.userid, count=1)
+	for media in recent_media:
+		picture = media.images['standard_resolution'].url
+		comments = media.comments
+	no_of_comments = len(comments)
+	return render_template("pic.html", pageTitle="Picture.", player=pData, picture=picture, comments=comments, no_of_comments=no_of_comments)
+
+
 @app.route("/test")
 def testpage():
 	media = api.user_recent_media(userid = 398127879, count=1)

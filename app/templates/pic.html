@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ player.name }} on RosterGram</title>
+</head>
+<body>
+
+<h1>{{ player.name }}</h1>
+
+<img src="{{ picture }}">
+
+<br>
+
+No. of Comments : {{ no_of_comments }}
+
+<br>
+
+Comments:<br>
+{% set i = 0 %}
+{% for x in comments %}
+	{{ x.text }}<br>
+{% endfor %}
+
+
+</body>
+</html>

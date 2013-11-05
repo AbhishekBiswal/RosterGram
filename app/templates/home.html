@@ -27,7 +27,7 @@
 		<div class="stack stack-sympl home-card-container">
 
 		{% for item in db.session.query(Players) %}
-		{% set recent_media, next = api.user_recent_media(user_id=item.userid, count=1) %}
+		{% set recent_media, next = api.user_recent_media(user_id=item.userid, count=10) %}
 			{% for media in recent_media %}
 				<div class="sympl onethird m-full">
 					<section class="home-card">
@@ -46,7 +46,7 @@
 							</h1>
 							<div class="home-card__by"> by <a href="#">{{ item.name }}</div>
 							<footer class="home-card__meta">
-								<a target="_blank" href="/p/{{ item.pid }}"><i class="icon-chat"></i></a>
+								<a target="_blank" href="/p/{{ item.pid }}/{{ media.id }}"><i class="icon-chat"></i></a>
 							</footer>
 						</div>
 					</section>

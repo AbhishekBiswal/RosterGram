@@ -5,7 +5,9 @@
 
 <h1>Teams (click on team to add a new player to that team):</h1>
 {% for item in db.session.query(Team) %}
-    <li><a href="/dash/players?team={{ item.tid }}">{{ item.teamname }}</a></li>
+    <li><a href="/dash/players?team={{ item.tid }}">{{ item.teamname }}</a> <a href="/dash/del-team/{{ item.tid }}">Delete Team
+
+    </a></li>
 {% endfor %}
 
 

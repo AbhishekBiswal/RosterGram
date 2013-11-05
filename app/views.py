@@ -62,6 +62,18 @@ def addTeamSub():
 	db.session.commit()
 	return redirect("/dash")
 
+@app.route("/dash/del-team/<tid>")
+def delTeam(tid):
+	if not session.get('loggedin'):
+		return redirect("/")
+	if tid == "":
+		return redirect("/")
+	team = Team.query.filter_by(tid=tid)
+	for x in team:
+		db.session.delete(x)
+	redirect("/dash")
+
+
 @app.route("/dash/players", methods=['GET'])
 def teamPlayers():
 	if not session.get('loggedin'):
@@ -73,6 +85,7 @@ def teamPlayers():
 
 @app.route("/dash/delplayer/<uid>")
 def delPlayer(uid):
+
 	player = Players.query.filter_by(pid=uid)
 	for x in player:
 		db.session.delete(x)
@@ -129,15 +142,18 @@ def teamPage(teamid):
 
 	return render_template("teampage.html", pageTitle = "Team Page", Players=Players, teamid=teamid, db=db, teamName=teamName, list=list, media=media)
 
-@app.route("/p/<pid>")
-def picPage(pid):
+@app.route("/p/<pid>/<mid>")
+def picPage(pid, mid):
 	if pid == "":
+		return redirect("/")
+	if mid == "":
 		return redirect("/")
 	pData = Players.query.filter_by(pid=pid).first()
 	if pData is None:
 		return "404"
-	recent_media, next = api.user_recent_media(user_id=pData.userid, count=10)
-	return render_template("pic.html", pageTitle="Picture.", player=pData, recent_media=recent_media)
+	# recent_media, next = api.user_recent_media(user_id=pData.userid, count=10)
+	recent_media = api.media(mid)
+	return render_template("pic.html", pageTitle="Picture.", player=pData, media=recent_media)
 
 
 @app.route("/test")

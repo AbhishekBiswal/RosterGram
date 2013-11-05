@@ -27,6 +27,7 @@
 		<div class="stack stack-sympl home-card-container">
 
 		{% for item in db.session.query(Players) %}
+		{% for tData in db.session.query(Team).filter_by(tid=item.team) %}
 		{% set recent_media, next = api.user_recent_media(user_id=item.userid, count=10) %}
 			{% for media in recent_media %}
 				<div class="sympl onethird m-full">
@@ -36,8 +37,8 @@
 						</a>
 
 						<footer class="team-colors">
-							<span></span>
-							<span></span>
+							<span>{{ tData.colorone }}</span>
+							<span>{{ tData.colortwo }}</span>
 						</footer>
 
 						<div class="home-card__text">
@@ -51,6 +52,7 @@
 						</div>
 					</section>
 				</div>
+			{% endfor %}
 			{% endfor %}
 			{% endfor %}
 

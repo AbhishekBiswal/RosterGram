@@ -11,8 +11,8 @@ api = InstagramAPI(client_id='d2c650e6e9ea41e4a77d3d7cf56f9919', client_secret='
 @app.route("/")
 def home():
 	loadPlayers = Players.query.limit(10)
-	recent_media, next = api.user_recent_media(user_id=398127879, count=2)
-	return render_template("home.html", pageTitle="RosterGram Home", recent_media= recent_media, Players=Players, db=db, api=api)
+	recent_media, next = api.user_recent_media(user_id=398127879, count=10)
+	return render_template("home.html", pageTitle="RosterGram Home", recent_media= recent_media, Players=Players, db=db, api=api, Team=Team)
 
 @app.route("/admin")
 def adminHome():

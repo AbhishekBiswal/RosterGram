@@ -114,7 +114,6 @@ def addPlayerSub():
 	ig = request.form['ig']
 	if (tid is None) or (ig is None) or (name is None):
 		return redirect("/dash/add-player?error=1")
-
 	url = "https://api.instagram.com/v1/users/search?q="+ig+"&access_token="+access_token
 	url = "https://api.instagram.com/v1/users/search?q="+ig+"&access_token="+access_token
 	response = urllib2.urlopen(url)
@@ -122,10 +121,14 @@ def addPlayerSub():
 	nhtml = json.loads(html)
 	userid = nhtml["data"][0]['id']
 
-	newPlayer = Players(name, ig, tid, userid)
+	recent_media, next = api.user_recent_media(user_id=userid, count=1)
+	for media in recent_media:
+		picture = media.images["standard_resolution"].url
+
+	newPlayer = Players(name, ig, tid, userid, picture)
 	db.session.add(newPlayer)
 	db.session.commit()
-	return "added"
+	return redirect("/dash")
 
 @app.route("/team/<teamid>", methods=['GET'])
 def teamPage(teamid):

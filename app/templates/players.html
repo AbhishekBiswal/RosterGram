@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<a href="/dash/add-player?team={{ teamID }}">Add Player to this team</a>
+<a class="btn" href="/dash/add-player?team={{ teamID }}">Add Player to this team</a>
 
 <h1>Players of Team #{{ teamID }} (click on team to add a new player to that team):</h1>
 {% for item in db.session.query(Players).filter_by(team=teamID) %}
-    <li><a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a> <a href="/dash/delplayer/{{ item.pid }}">Delete Player</a></li>
+    <li><a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a> <a href="/dash/delplayer/{{ item.pid }}?next={{ item.team }}">Delete Player</a></li>
 {% endfor %}
 
 

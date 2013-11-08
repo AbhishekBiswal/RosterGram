@@ -71,7 +71,11 @@ def delTeam(tid):
 	team = Team.query.filter_by(tid=tid)
 	for x in team:
 		db.session.delete(x)
-	redirect("/dash")
+	players = Players.query.filter_by(team=tid)
+	for y in players:
+		db.session.delete(y)
+	db.session.commit()
+	return redirect("/dash")
 
 
 @app.route("/dash/players", methods=['GET'])
@@ -83,13 +87,14 @@ def teamPlayers():
 	teamID = request.args.get('team')
 	return render_template("players.html", pageTitle="Team Members", db=db, teamID = teamID, Players=Players)
 
-@app.route("/dash/delplayer/<uid>")
+@app.route("/dash/delplayer/<uid>", methods=['GET'])
 def delPlayer(uid):
-
 	player = Players.query.filter_by(pid=uid)
 	for x in player:
 		db.session.delete(x)
-	return redirect("/dash")
+	db.session.commit()
+	next = "/dash/players?team="+str(request.args.get('next'))
+	return redirect(next)
 
 @app.route("/dash/add-player", methods=['GET'])
 def addPlayer():

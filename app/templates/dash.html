@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<a href="/dash/add-team">Add Team</a>
+<a class="btn" href="/dash/add-team">Add Team</a>
 
 <h1>Teams (click on team to add a new player to that team):</h1>
 {% for item in db.session.query(Team) %}

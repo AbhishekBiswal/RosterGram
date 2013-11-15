@@ -3,10 +3,10 @@
 
 <h1>Add Team</h1><br>
 <form class="add-team" action="/dash/add-player/sub" method="post">
-	<input type="text" name="name" placeholder="player name">
-	<input type="text" name="ig" placeholder="instagram id">
+	<input type="text" name="name" placeholder="Player Name">
+	<input type="text" name="ig" placeholder="Instagram ID">
 	<input type="hidden" name="teamID" value="{{ teamID }}">
-	<input type="submit" value="Go">
+	<input type="submit" class="btn btn-primary" value="Add Player!">
 </form>
 
 {% endblock %}

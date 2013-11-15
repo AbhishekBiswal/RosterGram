@@ -31,7 +31,7 @@ h1 {
 
 .instructions {
 	font-style: italic;
-	margin: 0 0 1.5em;
+	margin: 0 0 2em;
 	color: #999;
 }
 
@@ -54,7 +54,7 @@ h1 {
   color: #444; 
 }
 
-.admin-card {
+.admin-card + .admin-card {
     margin-top: 1em;
     border-top: thin solid #ddd;
     padding-top: 1em;

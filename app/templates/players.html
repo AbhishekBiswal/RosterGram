@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<a class="btn" href="/dash/add-player?team={{ teamID }}">Add Player to this team</a>
+<a class="btn admin-button btn-primary" href="/dash/add-player?team={{ teamID }}">Add Player to this team</a>
 
 <h1>Players of Team #{{ teamID }}:</h1>
 {% for item in db.session.query(Players).filter_by(team=teamID) %}

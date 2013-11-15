@@ -431,7 +431,7 @@ input, textarea {
   display: block;
   padding: .5em;
   margin-bottom: .75em;
-  border: thin solid darken($body-background-color, 5%);
+  border: .2em solid darken($body-background-color, 5%);
   width: 100%;
   border-radius: .2em;
 
@@ -493,7 +493,7 @@ $btn-intensity: 5%;
   }
 }
 
-.btn-secondary, .btn {
+.btn-secondary {
   background: $prim-color;
   border-color: darken($prim-color, $btn-intensity);
 

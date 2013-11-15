@@ -452,7 +452,7 @@ input:focus, textarea:focus {
   border-color: $prim-color;
 }
 
-input[type='button'], input[type='submit'], button, .button {
+input[type='button'], input[type='submit'], button, .button, .btn {
   border: none;
   background: transparent; 
   line-height: 1;
@@ -475,7 +475,7 @@ input[type='button'], input[type='submit'], button, .button {
 
 $btn-intensity: 5%;
 
-.btn-primary { 
+.btn-primary, .btn { 
   background: $sec-color;
   border-color: darken($sec-color, $btn-intensity);
   

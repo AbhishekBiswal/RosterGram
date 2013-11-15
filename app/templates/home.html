@@ -1,94 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>{{ pageTitle }}</title>
-	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
-</head>
-<body>
+{% extends "frontend.html" %}
 
-<header class="masthead" role="banner"><div class="wrap">
-	<div class="logo">
-		<h1>Rostergram</h1>
-	</div><!-- /.logo -->
+{% block title %}
+	<title>{{ pageTitle }}</title>	
+{% endblock %}
 
-	<nav class="menu" role="navigation">
-		<ul>
-			<li><a href="#">Item 1</a>
-			<li><a href="#">Item 2</a>
-			<li><a href="#">Item 3</a>
-			<li><a href="#">Item 4</a>
-			<li><a href="#">Item 5</a>
-		</ul>
-	</nav><!-- /nav.menu -->
-</div></header>
 
-	<div class="wrap">
-	<div class="content" role="main">
-		<div class="stack stack-sympl home-card-container">
+<div class="stack stack-sympl home-card-container">
 
-		{% for item in db.session.query(Players) %}
-		{% for tData in db.session.query(Team).filter_by(tid=item.team) %}
-		{% set recent_media, next = api.user_recent_media(user_id=item.userid, count=10) %}
-			{% for media in recent_media %}
-				<div class="sympl onethird m-full">
-					<section class="home-card">
-						<a href="#" class="home-card__img">
-							<img src="{{ media.images['standard_resolution'].url }}">
-						</a>
+{% for item in db.session.query(Players) %}
+{% for tData in db.session.query(Team).filter_by(tid=item.team) %}
+{% set recent_media, next = api.user_recent_media(user_id=item.userid, count=10) %}
+{% for media in recent_media %}
+	<div class="sympl onethird m-full">
+		<section class="home-card">
+			<a href="#" class="home-card__img">
+				<img src="{{ media.images['standard_resolution'].url }}">
+			</a>
 
-						<footer class="team-colors">
-							<span style="background-color: {{ tData.colorone }}"></span>
-							<span style="background-color: {{ tData.colortwo }}"></span>
-						</footer>
+			<footer class="team-colors">
+				<span style="background-color: {{ tData.colorone }}"></span>
+				<span style="background-color: {{ tData.colortwo }}"></span>
+			</footer>
 
-						<div class="home-card__text">
-							<h1 class="home-card__title">
-								<a href="#">&lsquo;{{ media.caption }}&rsquo;</a>
-							</h1>
-							<div class="home-card__by"> by <a href="#">{{ item.name }}</div>
-							<footer class="home-card__meta">
-								<a target="_blank" href="/p/{{ item.pid }}/{{ media.id }}"><i class="icon-chat"></i></a>
-							</footer>
-						</div>
-					</section>
-				</div>
-			{% endfor %}
-			{% endfor %}
-			{% endfor %}
-
-			<!-- 
-			<div class="sympl onethird m-full">
-				<section class="home-card">
-					<a href="#" class="home-card__img">
-						<img src="http://farm3.staticflickr.com/2125/2112036135_f326a6f61f_z.jpg?zz=1">
-					</a>
-
-					<footer class="team-colors">
-						<span></span>
-						<span></span>
-					</footer>
-
-					<div class="home-card__text">
-						<h1 class="home-card__title">
-							<a href="#">&lsquo;A Long Title Or Caption of the image&rsquo;</a>
-						</h1>
-						<div class="home-card__by"> by <a href="#">Player Name</a> of College Name Of State</div>
-						<footer class="home-card__meta">
-							<a href="#"><i class="icon-chat"></i></a>
-						</footer>
-					</div>
-				</section>
+			<div class="home-card__text">
+				<h1 class="home-card__title">
+					<a href="#">&lsquo;{{ media.caption }}&rsquo;</a>
+				</h1>
+				<div class="home-card__by"> by <a href="#">{{ item.name }}</a></div>
+				<footer class="home-card__meta">
+					<a target="_blank" href="/p/{{ item.pid }}/{{ media.id }}"><i class="icon-chat"></i></a>
+				</footer>
 			</div>
-			-->
-		</div>
+		</section>
 	</div>
-	</div>
-
-	<footer class="colophon site-footer" role="contentinfo"><div class="wrap">
-		<p>RosterGram &copy; 2013. Designed by <a href="http://namanyayg.com/">Namanyay Goel</a><br></p>
-	</div></footer><!-- FOOTER -->
+{% endfor %}
+{% endfor %}
+{% endfor %}
 </div>
 
-
-</body>
-</html>
+{% endblock %}

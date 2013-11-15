@@ -1,14 +1,12 @@
-/* Abhishek Biswal */
+/* Rostergram */
 * { margin: 0; padding: 0; }
 body
 {
-	border-top: 6px solid #dd4b39;
 	max-width: 720px;
 	margin: 0 auto;
 }
 
-.btn
-{
+.btn {
 	padding: 10px 30px;
 	margin: 10px;
 	background: #333;

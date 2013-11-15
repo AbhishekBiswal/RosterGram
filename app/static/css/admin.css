@@ -9,3 +9,11 @@ body {
 h1 {
 	border-bottom: 1px solid #ddd;
 }
+
+.admin-button {
+	margin: 1.5em 0 0 0;
+}
+
+.admin-button + .admin-button {
+	margin-left: 1.5em;
+}

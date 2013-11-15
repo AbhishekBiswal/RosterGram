@@ -1,13 +1,31 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<a class="btn" href="/dash/add-team">Add Team</a>
+<a class="btn admin-button" href="/dash/add-team">Add Team</a>
 
-<h1>Teams (click on team to add a new player to that team):</h1>
+<h1>Teams</h1>
+
+<div class="instructions">
+	Click on team name to edit players
+</div>
+
 {% for item in db.session.query(Team) %}
-    <li><a href="/dash/players?team={{ item.tid }}">{{ item.teamname }}</a> <a href="/dash/del-team/{{ item.tid }}">Delete Team
-
-    </a></li>
+  <section class="team-block admin-card">
+		<h1><a href="/dash/players?team={{ item.tid }}">{{ item.teamname }}</a></h1>
+		<footer class="admin-card__meta">
+			<div class="admin-card__meta__colors">
+				<p>
+					<strong>Colors:</strong> <span>#ff0000</span> and <span>#219fe1</span>.
+				</p>
+				<p>
+					<a href="/dash/edit-colors/{{ item.tid }}">Edit colors</a>
+				</p>
+			</div>
+			<div class="admin-card__meta__delete">
+				<a href="/dash/del-team/{{ item.tid }}">Delete Team?</a>
+			</div>
+		</footer>
+  </section>
 {% endfor %}
 
 

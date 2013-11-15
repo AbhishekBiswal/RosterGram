@@ -431,8 +431,9 @@ input, textarea {
   display: block;
   padding: .5em;
   margin-bottom: .75em;
-  border: .25em solid #eee;
+  border: thin solid darken($body-background-color, 5%);
   width: 100%;
+  border-radius: .2em;
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -449,12 +450,10 @@ input, textarea {
 
 input:focus, textarea:focus {
   outline: none;
-  border-color: $prim-color;
+  border-color: $sec-color;
 }
 
-input[type='button'], input[type='submit'], button, .button, .btn {
-  border: none;
-  background: transparent; 
+.button, .btn {
   line-height: 1;
   cursor: pointer;
   padding: 1em 1.5em;
@@ -473,11 +472,16 @@ input[type='button'], input[type='submit'], button, .button, .btn {
   margin-bottom: .75rem;  
 }
 
+.btn {
+  display: inline-block;
+}
+
 $btn-intensity: 5%;
 
-.btn-primary, .btn { 
+.btn-primary { 
   background: $sec-color;
   border-color: darken($sec-color, $btn-intensity);
+  color: white;
   
   &:hover {
     background: darken($sec-color, $btn-intensity);
@@ -489,7 +493,7 @@ $btn-intensity: 5%;
   }
 }
 
-.btn-secondary {
+.btn-secondary, .btn {
   background: $prim-color;
   border-color: darken($prim-color, $btn-intensity);
 

@@ -3,9 +3,19 @@
 
 <a class="btn" href="/dash/add-player?team={{ teamID }}">Add Player to this team</a>
 
-<h1>Players of Team #{{ teamID }} (click on team to add a new player to that team):</h1>
+<h1>Players of Team #{{ teamID }}:</h1>
 {% for item in db.session.query(Players).filter_by(team=teamID) %}
-    <li><a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a> <a href="/dash/delplayer/{{ item.pid }}?next={{ item.team }}">Delete Player</a></li>
+    <section class="team-block admin-card">
+		<h1><a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a></h1>
+		<footer class="admin-card__meta">
+			<div class="admin-card__meta__editlink">
+				<a href="#">Edit Instagram ID</a>
+			</div>
+			<div class="admin-card__meta__delete">
+				<a href="/dash/delplayer/{{ item.pid }}?next={{ item.team }}">Delete Player?</a>
+			</div>
+		</footer>
+  </section>
 {% endfor %}
 
 

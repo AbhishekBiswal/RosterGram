@@ -12,6 +12,8 @@ h1 {
 
 .admin-button {
 	margin: 1.5em 0 0 0;
+	display: inline-block;
+	color: white;
 }
 
 .admin-button + .admin-button {

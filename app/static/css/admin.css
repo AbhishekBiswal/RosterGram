@@ -13,9 +13,65 @@ h1 {
 .admin-button {
 	margin: 1.5em 0 0 0;
 	display: inline-block;
-	color: white;
+	color: white !important;
 }
 
 .admin-button + .admin-button {
 	margin-left: 1.5em;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   =GLOBAL
+   ========================================================================== */
+
+.instructions {
+	font-style: italic;
+	margin: 0 0 1.5em;
+	color: #999;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   =CARD
+   ========================================================================== */
+
+.admin-card > h1 {
+    font-size: 1.5em;
+    border-bottom: none;
+    margin: 0 0 .5em;
+}
+
+.admin-card > h1 a {
+  color: #444; 
+}
+
+.admin-card {
+    margin-top: 1em;
+    border-top: thin solid #ddd;
+    padding-top: 1em;
+}
+
+.admin-card__meta p {
+    margin: 0;
+}
+
+.admin-card__meta > div + div {
+    margin-top: .75em;
+}
+
+.admin-card__meta__colors {
+    color: #666;
+}
+
+.admin-card__meta__colors span {
+    font-style: italic;
 }

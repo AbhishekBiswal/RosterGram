@@ -338,16 +338,6 @@ h5, h6 {
   margin: 0 auto;
 }
 
-.ws-item {
-  margin-bottom: 3em;
-}
-
-.ws-item > h1 {
-  font-size: .875em;
-  color: #999;
-  margin: 0 0 1.714em 0;
-}
-
 
 
 
@@ -399,31 +389,9 @@ h5, h6 {
 
 
 
-
-/* ==========================================================================
-   =COLOR
-   ========================================================================== */
-
-[class^="color"] {
-  height: 5em;
-}
-
-.color-1 { background: $color-1-color; }
-.color-2 { background: $color-2-color; }
-.color-3 { background: $color-3-color; }
-.color-4 { background: $color-4-color; }
-.color-5 { background: $color-5-color; }
-.color-6 { background: $color-6-color; }
-
-
-
-
-
 /* ==========================================================================
    =FORM
    ========================================================================== */
-
-.ws-form { margin-top: -1.5em; }
 
 input, textarea {
   /* Use for styling text based form elements, like name, email, password. 
@@ -522,20 +490,6 @@ $btn-tertiary-color: darken($body-background-color, 20%);
   &:focus, &:active {
     background: darken($btn-tertiary-color, $btn-intensity);
   }
-}
-
-
-
-
-
-
-/* ==========================================================================
-   =ADJECTIVES
-   ========================================================================== */
-
-.ws-adjectives div {
-  font-size: 1.5em;
-  padding-bottom: .25em;
 }
 
 

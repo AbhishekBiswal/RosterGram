@@ -168,3 +168,27 @@ def picPage(pid, mid):
 def testpage():
 	media = api.user_recent_media(userid = 398127879, count=1)
 	return str(media)
+
+@app.route("/dash/edit-colors/<tid>")
+def editTeam(tid):
+	if session.get("loggedin") is not True:
+		return redirect("/")
+	team = Team.query.filter_by(tid=tid).first()
+	if team is None:
+		return "Error"
+	return render_template("edit-team.html", pageTitle="Edit Team", team=team)
+
+@app.route("/dash/edit-colors/sub", methods=['POST'])
+def editColorsSub():
+	if session.get("loggedin") is not True:
+		return redirect("/")
+	colorOne = request.form['tcolorone']
+	colorTwo = request.form['tcolortwo']
+	tid = request.form['tid']
+	team = Team.query.filter_by(tid=tid).first()
+	if team is None:
+		return "Error 1"
+	team.colorone = colorOne
+	team.colortwo = colorTwo
+	db.session.commit()
+	return redirect("/dash")

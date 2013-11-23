@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>EDIT Colors of {{ team.teamname }}</h1><br>
+<form class="add-team" action="/dash/edit-colors/sub" method="post">
+	<input type="text" name="tcolorone" placeholder="Color One" value="{{ team.colorone }}">
+	<input type="text" name="tcolortwo" placeholder="Color Two" value="{{ team.colortwo }}">
+	<input type="hidden" name="tid" value="{{ team.tid }}">
+	<input type="submit" class="btn btn-primary" value="Save">
+</form>
+
+{% endblock %}

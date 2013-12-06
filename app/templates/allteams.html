@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All Teams</title>
+</head>
+<body>
+
+{% for team in db.session.query(Team) %}
+
+<div class="team team{{ team.tid }}">
+
+	{% for player in db.session.query(Players).filter_by(team=team.tid) %}
+
+		<h1>{{ team.teamname }}</h1>
+
+		{{ player.name }}<br><img src="{{ player.picture }}">
+
+
+	{% endfor %}
+</div><!-- team -->
+
+{% endfor %}
+
+</body>
+</html>

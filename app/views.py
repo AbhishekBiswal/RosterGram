@@ -192,3 +192,7 @@ def editColorsSub():
 	team.colortwo = colorTwo
 	db.session.commit()
 	return redirect("/dash")
+
+@app.route("/allteams")
+def allTeams():
+	return render_template("allteams.html", db=db, Players=Players, Team=Team)

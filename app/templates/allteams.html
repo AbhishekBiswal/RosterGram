@@ -1,9 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>All Teams</title>
-</head>
-<body>
+{% extends "frontend.html" %}
+{% block content %}
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(".hideteam").click(function(a){
+			a.preventDefault();
+			var id = $(this).attr("id");
+			$("."+id).slideUp();
+		})
+
+	}) // ready
+</script>
+
+<a href="/allteams">Show All Teams.</a>
 
 {% for team in db.session.query(Team) %}
 
@@ -11,7 +21,7 @@
 
 	{% for player in db.session.query(Players).filter_by(team=team.tid) %}
 
-		<h1>{{ team.teamname }}</h1>
+		<h1>{{ team.teamname }}</h1><a href="#" class="hideteam" id="team{{ team.tid }}">Hide this team</a><br>
 
 		{{ player.name }}<br><img src="{{ player.picture }}">
 
@@ -20,6 +30,4 @@
 </div><!-- team -->
 
 {% endfor %}
-
-</body>
-</html>
+{% endblock %}

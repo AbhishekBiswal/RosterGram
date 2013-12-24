@@ -1,4 +1,7 @@
 {% extends "frontend.html" %}
+<!--
+	todo : include frontend..11
+-->
 {% block content %}
 
 <script type="text/javascript">
@@ -8,10 +11,40 @@
 			a.preventDefault();
 			var id = $(this).attr("id");
 			$("."+id).slideUp();
+		});
+
+		// checkbox:
+		$("#checkboxes input").change(function(){
+			var value = this.value;
+			if(this.checked)
+			{
+				//alert(value)
+				$(".team"+value).slideDown();
+			}
+			else
+			{
+				$(".team"+value).slideUp();
+			}
 		})
 
 	}) // ready
 </script>
+<style type="text/css">
+	#checkboxes input
+	{
+		display: inline !important;
+	}
+	#checkboxes label
+	{
+		display: inline;
+	}
+</style>
+
+{% for team in db.session.query(Team) %}
+<div id="checkboxes">
+	<div><input type="checkbox" name="checkbox" value="{{ team.tid }}" checked="checked"> <label>{{ team.teamname }}</label></div>
+</div>
+{% endfor %}
 
 <a href="/allteams">Show All Teams.</a>
 

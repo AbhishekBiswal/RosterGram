@@ -1,10 +1,7 @@
 {% extends "frontend.html" %}
-
-{% block title %}
-	<title>{{ pageTitle }}</title>	
-{% endblock %}
-
-
+<!--
+	todo : include frontend..11
+-->
 {% block content %}
 
 <script type="text/javascript">
@@ -43,45 +40,29 @@
 	}
 </style>
 
-{% for team in db.session.query(Team) %}
+{% for team in query %}
 <div id="checkboxes">
 	<div><input type="checkbox" name="checkbox" value="{{ team.tid }}" checked="checked"> <label>{{ team.teamname }}</label></div>
 </div>
 {% endfor %}
 
+<a href="/allteams">Show All Teams.</a>
+
+{% for team in query %}
+
+<div class="team team{{ team.tid }}">
+
+	{% for player in db.session.query(Players).filter_by(team=team.tid) %}
+
+		<h1>{{ team.teamname }}</h1><a href="#" class="hideteam" id="team{{ team.tid }}">Hide this team</a><br>
+
+		{{ player.name }}<br><img src="{{ player.picture }}">
 
 
-<div class="stack stack-sympl home-card-container">
+	{% endfor %}
+</div><!-- team -->
 
-{% for item in db.session.query(Players) %}
-{% for tData in db.session.query(Team).filter_by(tid=item.team) %}
-{% set recent_media, next = api.user_recent_media(user_id=item.userid, count=10) %}
-{% for media in recent_media %}
-	<div class="sympl onethird m-full">
-		<section class="home-card">
-			<a href="#" class="home-card__img">
-				<img src="{{ media.images['standard_resolution'].url }}">
-			</a>
+<a href="/?page={{ page+1 }}">Next Page</a>
 
-			<footer class="team-colors">
-				<span style="background-color: {{ tData.colorone }}"></span>
-				<span style="background-color: {{ tData.colortwo }}"></span>
-			</footer>
-
-			<div class="home-card__text">
-				<h1 class="home-card__title">
-					<a href="#">&lsquo;{{ media.caption }}&rsquo;</a>
-				</h1>
-				<div class="home-card__by"> by <a href="#">{{ item.name }}</a></div>
-				<footer class="home-card__meta">
-					<a target="_blank" href="/p/{{ item.pid }}/{{ media.id }}"><i class="icon-chat"></i></a>
-				</footer>
-			</div>
-		</section>
-	</div>
 {% endfor %}
-{% endfor %}
-{% endfor %}
-</div>
-
 {% endblock %}

@@ -8,11 +8,22 @@ from instagram.client import InstagramAPI
 access_token = '398127879.d2c650e.be22d091d3b944bcaf9e2942dd0047fc'
 api = InstagramAPI(client_id='d2c650e6e9ea41e4a77d3d7cf56f9919', client_secret='323783a9221f456fa454736f53a61d57', access_token='398127879.d2c650e.be22d091d3b944bcaf9e2942dd0047fc')
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def home():
-	loadPlayers = Players.query.limit(10)
-	recent_media, next = api.user_recent_media(user_id=398127879, count=10)
-	return render_template("home.html", pageTitle="RosterGram Home", recent_media= recent_media, Players=Players, db=db, api=api, Team=Team)
+	#loadPlayers = Players.query.limit(10)
+	# recent_media, next = api.user_recent_media(user_id=398127879, count=10)
+	page = request.args.get('page')
+	if page is None:
+		page = 1
+	if page == 1:
+		query = Team.query.limit(12)
+	elif page == 2:
+		query = Team.query.slice(13,25)
+	elif page == 3:
+		query = Team.query.slice(26,38)
+	else:
+		query = Team.query.slice(39,51)
+	return render_template("home.html", pageTitle="RosterGram Home", Players=Players, db=db, Team=Team, query=query, page=page)
 
 @app.route("/admin")
 def adminHome():
@@ -193,6 +204,7 @@ def editColorsSub():
 	db.session.commit()
 	return redirect("/dash")
 
-@app.route("/allteams")
+@app.route("/allteams", methods=['GET'])
 def allTeams():
+	page = request.args.get('page')
 	return render_template("allteams.html", db=db, Players=Players, Team=Team)

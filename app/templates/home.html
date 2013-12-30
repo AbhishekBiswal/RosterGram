@@ -4,61 +4,52 @@
 -->
 {% block content %}
 
-<script type="text/javascript">
-	$(document).ready(function(){
 
-		$(".hideteam").click(function(a){
-			a.preventDefault();
-			var id = $(this).attr("id");
-			$("."+id).slideUp();
-		});
-
-		// checkbox:
-		$("#checkboxes input").change(function(){
-			var value = this.value;
-			if(this.checked)
-			{
-				//alert(value)
-				$(".team"+value).slideDown();
-			}
-			else
-			{
-				$(".team"+value).slideUp();
-			}
-		})
-
-	}) // ready
-</script>
-<style type="text/css">
-	#checkboxes input
-	{
-		display: inline !important;
-	}
-	#checkboxes label
-	{
-		display: inline;
-	}
-</style>
 
 {% for team in query %}
-<div id="checkboxes">
-	<div><input type="checkbox" name="checkbox" value="{{ team.tid }}" checked="checked"> <label>{{ team.teamname }}</label></div>
+<div class="team-select">
+	<div>
+		<input type="checkbox" name="checkbox" value="{{ team.tid }}" checked>
+		<label>{{ team.teamname }}</label>
+	</div>
 </div>
 {% endfor %}
 
-<a href="/allteams">Show All Teams.</a>
+<a href="#" class="js--all-teams">Show All Teams.</a>
 
-{% for player in query %}
 
-<div class="team team{{ player.tid }}">
-
-		<a href="#" class="hideteam" id="team{{ player.tid }}">Hide this Player</a><br>
-
-		{{ player.name }}<br><img src="{{ player.picture }}">
-
-</div><!-- team -->
+<div class="stack stack-sympl home-card-container">
+  
+  {% for item in db.session.query(Players) %}
+  {% for tData in db.session.query(Team).filter_by(tid=item.team) %}
+  {% set recent_media, next = api.user_recent_media(user_id=item.userid, count=10) %}
+  {% for media in recent_media %}
+    <div class="sympl onethird m-full team team-{{tData.tid}}">
+      <section class="home-card">
+        <a href="#" class="home-card__img">
+          <img src="{{ media.images['standard_resolution'].url }}">
+        </a>
+  
+        <footer class="team-colors">
+          <span style="background-color: {{ tData.colorone }}"></span>
+          <span style="background-color: {{ tData.colortwo }}"></span>
+        </footer>
+  
+        <div class="home-card__text">
+          <h1 class="home-card__title">
+            <a href="#">&lsquo;{{ media.caption }}&rsquo;</a>
+          </h1>
+          <div class="home-card__by"> by <a href="#">{{ item.name }}</a></div>
+          <footer class="home-card__meta">
+            <a target="_blank" href="/p/{{ item.pid }}/{{ media.id }}"><i class="icon-chat"></i></a>
+          </footer>
+        </div>
+      </section>
+    </div>
+  {% endfor %}
+  {% endfor %}
+  {% endfor %}
+</div>
 
 <!-- <a href="/?page={{ page }}">Next Page</a> -->
-
-{% endfor %}
 {% endblock %}

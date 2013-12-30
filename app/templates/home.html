@@ -48,21 +48,17 @@
 
 <a href="/allteams">Show All Teams.</a>
 
-{% for team in query %}
+{% for player in query %}
 
-<div class="team team{{ team.tid }}">
+<div class="team team{{ player.tid }}">
 
-	{% for player in db.session.query(Players).filter_by(team=team.tid) %}
-
-		<h1>{{ team.teamname }}</h1><a href="#" class="hideteam" id="team{{ team.tid }}">Hide this team</a><br>
+		<a href="#" class="hideteam" id="team{{ player.tid }}">Hide this Player</a><br>
 
 		{{ player.name }}<br><img src="{{ player.picture }}">
 
-
-	{% endfor %}
 </div><!-- team -->
 
-<a href="/?page={{ page+1 }}">Next Page</a>
+<!-- <a href="/?page={{ page }}">Next Page</a> -->
 
 {% endfor %}
 {% endblock %}

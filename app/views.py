@@ -13,7 +13,8 @@ def home():
 	#loadPlayers = Players.query.limit(10)
 	# recent_media, next = api.user_recent_media(user_id=398127879, count=10)
 	page = request.args.get('page')
-	if page is None:
+	query = Players.query
+	"""if page is None:
 		page = 1
 	if page == 1:
 		query = Team.query.limit(12)
@@ -22,7 +23,7 @@ def home():
 	elif page == 3:
 		query = Team.query.slice(26,38)
 	else:
-		query = Team.query.slice(39,51)
+		query = Players.query.slice(39,51)"""
 	return render_template("home.html", pageTitle="RosterGram Home", Players=Players, db=db, Team=Team, query=query, page=page)
 
 @app.route("/admin")

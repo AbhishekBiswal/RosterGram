@@ -13,7 +13,7 @@ def home():
 	#loadPlayers = Players.query.limit(10)
 	# recent_media, next = api.user_recent_media(user_id=398127879, count=10)
 	page = request.args.get('page')
-	query = Players.query
+	query = Team.query
 	"""if page is None:
 		page = 1
 	if page == 1:

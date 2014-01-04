@@ -14,7 +14,8 @@ $(document).ready(function(){
        }
      })
 
-	$('.jsallteams').click(function() {
+	$('.js--all-teams').click(function(e) {
+    e.preventDefault();
 		$(".team-select input").each(function() {
 			$(this).prop('checked', true);
 		})

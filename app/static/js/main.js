@@ -5,7 +5,7 @@ $(document).ready(function(){
        //alert(value)
        if(this.checked)
        {
-         alert(value)
+         //alert(value)
          $(".team"+value).slideDown();
        }
        else
@@ -15,7 +15,7 @@ $(document).ready(function(){
      })
 
 	$('.jsallteams').click(function() {
-		$(".teamselect input").each(function() {
+		$(".team-select input").each(function() {
 			$(this).prop('checked', true);
 		})
 

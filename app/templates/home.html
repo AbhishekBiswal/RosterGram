@@ -20,10 +20,12 @@
 
 <div class="stack stack-sympl home-card-container">
   
-  {{ item }}
 
   {% for item in db.session.query(Players) %}
   {% for team in db.session.query(Team).filter_by(tid=item.team) %}
+
+   {{ item }}
+
     <div class="sympl onethird m-full team team{{item.team}}">
       <section class="home-card">
         <a href="#" class="home-card__img">

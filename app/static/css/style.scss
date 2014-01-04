@@ -1,13 +1,12 @@
 /*!
-
-Webstiles - A simple template for web design prototyping.
-
-By Namanyay Goel | http://namanyayg.com/ | @namanyayg
- 
-Under MIT License.
-https://github.com/namanyayg/webstiles.
-
-*/
+ *
+ * By Namanyay Goel
+ * http://namanyayg.com/ | @namanyayg
+ *
+ * For Michael Pistell
+ * RosterGram
+ *
+ */
 
 /*! Sympl http://github.com/namanyayg/sympl | MIT License | Namanyay Goel http://namanyayg.com/ */
 
@@ -82,14 +81,6 @@ $sec-color: #1abc9c;
 $tertiary-color: #f1c40f;
 
 $body-background-color: #ecf0f1;
-
-$color-1-color: $prim-color;
-$color-2-color: $sec-color;
-$color-3-color: $tertiary-color;
-$color-4-color: $grey;
-$color-5-color: gainsboro;
-$color-6-color: saddlebrown;
-
 
 /* Global */
 $main-font-family: 'Lato', sans-serif;
@@ -385,6 +376,40 @@ h5, h6 {
   background: $prim-color;
   color: white;
 }
+
+
+  /* Team Select */
+
+  .team-select-container {
+    margin: 1.5em 0;
+  }
+
+  .team-select {
+    overflow: hidden;
+    display: inline-block;
+    background: white;  
+    padding: .3em .75em;  border-radius: .2em;  
+    border: thin solid darken($body-background-color, 5%);  
+    border-bottom-width: 2px;
+    margin-right: .75em;
+  }
+
+  .team-select input {
+    width: 1em;  
+    display: block;  
+    float: left;  
+    margin: .3em 0 0;
+  }
+
+  .team-select label {
+    display: block;
+    float: left;
+    margin-left: .5em;
+  }
+
+  .show-all-teams {
+      display: block;
+  }
 
 
 

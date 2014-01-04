@@ -6,26 +6,23 @@
 
 
 
-{% for team in db.session.query(Team) %}
-<div class="team-select">
-	<div>
-		<input type="checkbox" name="checkbox" value="{{ team.tid }}" checked>
-		<label>{{ team.teamname }}</label>
-	</div>
+<div class="team-select-container">
+  {% for team in db.session.query(Team) %}
+  <div class="team-select">
+  	<div>
+  		<input type="checkbox" name="checkbox" value="{{ team.tid }}" checked>
+  		<label>{{ team.teamname }}</label>
+  	</div>
+  </div>
+  {% endfor %}
 </div>
-{% endfor %}
 
-<a href="#" class="js--all-teams">Show All Teams.</a>
+<a href="#" class="show-all-teams js--all-teams">Show All Teams.</a>
 
 
 <div class="stack stack-sympl home-card-container">
-  
-
   {% for item in db.session.query(Players) %}
   {% for team in db.session.query(Team).filter_by(tid=item.team) %}
-
-   {{ item }}
-
     <div class="sympl onethird m-full team team{{item.team}}">
       <section class="home-card">
         <a href="#" class="home-card__img">

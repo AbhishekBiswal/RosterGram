@@ -28,6 +28,7 @@
 <div class="stack stack-sympl home-card-container">
   {% for item in db.session.query(Players) %}
   {% for team in db.session.query(Team).filter_by(tid=item.team) %}
+
     <div class="sympl onethird m-full team team{{item.team}}">
       <section class="home-card">
         <a href="#" class="home-card__img">
@@ -50,6 +51,53 @@
         </div>
       </section>
     </div>
+
+    <div class="sympl onethird m-full team team{{item.team}}">
+      <section class="home-card">
+        <a href="#" class="home-card__img">
+          <img src="{{ item.picturetwo }}">
+        </a>
+  
+        <footer class="team-colors">
+          <span style="background-color: {{ team.colorone }}"></span>
+          <span style="background-color: {{ team.colortwo }}"></span>
+        </footer>
+  
+        <div class="home-card__text">
+          <h1 class="home-card__title">
+            <a href="#">&lsquo;{{ item.name }}&rsquo;</a>
+          </h1>
+          <div class="home-card__by"> by <a href="#">{{ item.name }}</a></div>
+          <footer class="home-card__meta">
+            <a target="_blank" href="http://instagram/{{ item.ig }}"><i class="icon-chat"></i></a>
+          </footer>
+        </div>
+      </section>
+    </div>
+
+    <div class="sympl onethird m-full team team{{item.team}}">
+      <section class="home-card">
+        <a href="#" class="home-card__img">
+          <img src="{{ item.picturethree }}">
+        </a>
+  
+        <footer class="team-colors">
+          <span style="background-color: {{ team.colorone }}"></span>
+          <span style="background-color: {{ team.colortwo }}"></span>
+        </footer>
+  
+        <div class="home-card__text">
+          <h1 class="home-card__title">
+            <a href="#">&lsquo;{{ item.name }}&rsquo;</a>
+          </h1>
+          <div class="home-card__by"> by <a href="#">{{ item.name }}</a></div>
+          <footer class="home-card__meta">
+            <a target="_blank" href="http://instagram/{{ item.ig }}"><i class="icon-chat"></i></a>
+          </footer>
+        </div>
+      </section>
+    </div>
+
   {% endfor %}
   {% endfor %}
 </div>

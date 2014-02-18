@@ -13,12 +13,14 @@ $(document).ready(function(){
 
 
     $('.team-select label').each(function() {
+
+      console.log(url, History.state, $(this).html.replace(/\s+/g, ''));
+
       if ( jQuery.inArray( decodeURIComponent($(this).html.replace(/\s+/g, '')), History.state ) !== -1 ) {
         $(this).previous().prop('checked', true);
       } else {
         $(this).previous().prop('checked', false);
       }
-      console.log(url, History.state, $(this).html.replace(/\s+/g, ''));
     });
 
     hideShowTeams( $('.team-select input') );

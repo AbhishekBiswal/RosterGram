@@ -26,8 +26,8 @@ $(document).ready(function(){
   //
 
 	$(".team-select input").change(function(){
-    hideShowTeams(this);
-    checkURL(this);
+    hideShowTeams($(this));
+    checkURL();
   });
     
   //   
@@ -51,8 +51,8 @@ $(document).ready(function(){
 
   function hideShowTeams(inputs) {
     inputs.each(function() {
-      var value = $(this).value;
-      var isChecked = $(this).checked;
+      var value = $(this).val();
+      var isChecked = $(this).prop('checked');
 
       if(isChecked) {
        $(".team"+value).slideDown();

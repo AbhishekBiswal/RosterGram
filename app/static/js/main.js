@@ -14,7 +14,7 @@ $(document).ready(function(){
 
     $('.team-select label').each(function() {
 
-      var label = decodeURIComponent($(this).html().replace(/\s+/g, '');
+      var label = decodeURIComponent($(this).html().replace(/\s+/g, ''));
       var historyState = History.getState().data;
 
       if ( jQuery.inArray( label, historyState ) !== -1 ) {

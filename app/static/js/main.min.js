@@ -18,9 +18,9 @@ $(document).ready(function(){
       var historyState = History.getState().data;
 
       if ( jQuery.inArray( label, historyState ) !== -1 ) {
-        $(this).previous().prop('checked', true);
+        $(this).prev().prop('checked', true);
       } else {
-        $(this).previous().prop('checked', false);
+        $(this).prev().prop('checked', false);
       }
     });
 

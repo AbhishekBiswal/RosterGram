@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 
     $('.team-select label').each(function() {
-      if ( $.inArray( $(this).html.replace(/\s+/g, ''), History.state ) !== -1 ) {
+      if ( jQuery.inArray( decodeURIComponent($(this).html.replace(/\s+/g, '')), History.state ) !== -1 ) {
         $(this).previous().prop('checked', true);
       } else {
         $(this).previous().prop('checked', false);

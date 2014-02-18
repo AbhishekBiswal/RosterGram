@@ -5,7 +5,12 @@ import urllib2
 import json
 
 from instagram.client import InstagramAPI
-access_token = '398127879.d2c650e.be22d091d3b944bcaf9e2942dd0047fc'
+import random
+accesskeyNo = random.randint(1,2)
+if accesskeyNo == 1:
+	access_token = '398127879.d2c650e.be22d091d3b944bcaf9e2942dd0047fc'
+else:
+	access_token = '398127879.d2c650e.be22d091d3b944bcaf9e2942dd0047fc'
 api = InstagramAPI(client_id='d2c650e6e9ea41e4a77d3d7cf56f9919', client_secret='323783a9221f456fa454736f53a61d57', access_token='398127879.d2c650e.be22d091d3b944bcaf9e2942dd0047fc')
 
 @app.route("/", methods=['GET'])
@@ -117,7 +122,7 @@ def addPlayer():
 	teamID = request.args.get('team')
 	return render_template("add-player.html", pageTitle="Players", teamID=teamID)
 
-@app.route("/dash/add-player/sub", methods=['POST'])
+@app.route("/dash/add-player/sub", methods=['POST', 'GET'])
 def addPlayerSub():
 	if not session.get('loggedin'):
 		return redirect("/admin")
@@ -209,3 +214,25 @@ def editColorsSub():
 def allTeams():
 	page = request.args.get('page')
 	return render_template("allteams.html", db=db, Players=Players, Team=Team)
+
+@app.route("/fetchPics")
+def fetchPics():
+	players = db.session.query(Players)
+	playersCount = Players.query.count()
+	j = 0
+	for p in players:
+		j = j + 1
+		recent_media, next = api.user_recent_media(user_id=p.userid, count=3)
+		i = 1
+		for pic in recent_media:
+			picture = pic.images["standard_resolution"].url
+			curPlayer = Players.query.filter_by(pid=p.pid).first()
+			if i == 1:
+				curPlayer.picture = picture
+			elif i == 2:
+				curPlayer.picturetwo = picture
+			else:
+				curPlayer.picturethree = picture
+			db.session.commit()
+			i = i + 1
+	return "done."

@@ -10,6 +10,17 @@ $(document).ready(function(){
     if (url == '') return false;
 
     History.pushState(url.slice(3).split('+'), '', url);
+
+    $('.team-select label').each(function() {
+      if ( $.inArray( $(this).html.replace(/\s+/g, ''), History.state ) !== -1 ) {
+        $(this).previous().prop('checked', true);
+      } else {
+        $(this).previous().prop('checked', false);
+      }
+    });
+
+    hideShowTeams( $('.team-select input') );
+
   } loadURL();
 
   //
@@ -38,21 +49,23 @@ $(document).ready(function(){
 
   //
 
-  function hideShowTeams(input) {
-    var value = input.value;
-    var isChecked = input.checked;
+  function hideShowTeams(inputs) {
+    inputs.each(function() {
+      var value = $(this).value;
+      var isChecked = $(this).checked;
 
-    if(isChecked) {
-     $(".team"+value).slideDown();
-    } else {
-     $(".team"+value).slideUp();
-    }
+      if(isChecked) {
+       $(".team"+value).slideDown();
+      } else {
+       $(".team"+value).slideUp();
+      }
+    });
   } 
 
   //
 
   function checkURL (args) {
-    if (args === 'all') {
+    if ( args === 'all' || $('.team-select input').length === $('.team-select input:checked').length ) {
       history.pushState('', '', '');
       return;
     }
@@ -64,7 +77,7 @@ $(document).ready(function(){
       // finds labels next to inputs, and removes whitespace, and encodes to URL
     });
 
-    History.pushState(labels, '', labels.join('+'));
+    History.pushState(labels, '', '?t=' + labels.join('+'));
   }
 
 });

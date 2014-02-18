@@ -14,9 +14,10 @@ $(document).ready(function(){
 
     $('.team-select label').each(function() {
 
-      console.log(url, History.state, $(this).html.replace(/\s+/g, ''));
+      var label = decodeURIComponent($(this).html().replace(/\s+/g, '');
+      var historyState = History.getState().data;
 
-      if ( jQuery.inArray( decodeURIComponent($(this).html.replace(/\s+/g, '')), History.state ) !== -1 ) {
+      if ( jQuery.inArray( label, historyState ) !== -1 ) {
         $(this).previous().prop('checked', true);
       } else {
         $(this).previous().prop('checked', false);

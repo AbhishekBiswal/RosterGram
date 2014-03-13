@@ -14,8 +14,10 @@
   {% for team in db.session.query(Team) %}
   <div class="team-select">
   	<div>
-  		<input type="checkbox" name="checkbox" value="{{ team.tid }}" checked>
-  		<label>{{ team.teamname }}</label>
+      <label>
+    		<input type="checkbox" name="checkbox" value="{{ team.tid }}" checked>
+    		<span>{{ team.teamname }}</span>
+      </label>
   	</div>
   </div>
   {% endfor %}

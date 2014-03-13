@@ -9,12 +9,13 @@ $(document).ready(function(){
 
     if (url == '') return false;
 
-    History.pushState(url.slice(3).split('+'), '', url);
+    History.pushState(url.slice(3).split('+'), 'RosterGram', url);
 
 
     $('.team-select label').each(function() {
 
-      var label = decodeURIComponent($(this).html().replace(/\s+/g, ''));
+
+      var label = encodeURIComponent($(this).find('span').html().replace(/\s+/g, '').replace('&', '-and-'));
       var historyState = History.getState().data;
 
       if ( jQuery.inArray( label, historyState ) !== -1 ) {
@@ -71,18 +72,18 @@ $(document).ready(function(){
 
   function checkURL (args) {
     if ( args === 'all' || $('.team-select input').length === $('.team-select input:checked').length ) {
-      history.pushState('', '', '');
+      history.pushState('', 'RosterGram', '');
       return;
     }
 
     var labels = [];
 
     $('.team-select input:checked').each(function() {
-      labels.push(encodeURIComponent($(this).next().html().replace(/\s+/g, '')));
+      labels.push(encodeURIComponent($(this).next('span').html().replace(/\s+/g, '').replace('&', '-and-'));
       // finds labels next to inputs, and removes whitespace, and encodes to URL
     });
 
-    History.pushState(labels, '', '?t=' + labels.join('+'));
+    History.pushState(labels, 'RosterGram', '?t=' + labels.join('+'));
   }
 
 });

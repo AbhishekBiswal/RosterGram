@@ -224,15 +224,22 @@ def fetchPics():
 		j = j + 1
 		recent_media, next = api.user_recent_media(user_id=p.userid, count=3)
 		i = 1
+		#return str(recent_media)
 		for pic in recent_media:
 			picture = pic.images["standard_resolution"].url
 			curPlayer = Players.query.filter_by(pid=p.pid).first()
 			if i == 1:
 				curPlayer.picture = picture
+				curPlayer.picturetime = pic.created_time
+				curPlayer.picturecaption = pic.caption.text
 			elif i == 2:
 				curPlayer.picturetwo = picture
+				curPlayer.picturetwotime = pic.created_time
+				curPlayer.picturetwocaption = pic.caption.text
 			else:
 				curPlayer.picturethree = picture
+				curPlayer.picturethreetime = pic.created_time
+				curPlayer.picturethreecaption = pic.caption.text
 			db.session.commit()
 			i = i + 1
 	return "done."

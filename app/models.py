@@ -38,6 +38,12 @@ class Players(db.Model):
 	picture = db.Column(db.String(300))
 	picturetwo = db.Column(db.String(300))
 	picturethree = db.Column(db.String(300))
+	picturetime = db.Column(db.String(300))
+	picturetwotime = db.Column(db.String(300))
+	picturethreetime = db.Column(db.String(300))
+	picturecaption = db.Column(db.String(300))
+	picturetwocaption = db.Column(db.String(300))
+	picturethreecaption = db.Column(db.String(300))
 
 	def __init__(self, name, ig, team, userid, picture):
 		self.name = name

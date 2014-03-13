@@ -232,14 +232,17 @@ def fetchPics():
 				curPlayer.picture = picture
 				curPlayer.picturetime = pic.created_time
 				curPlayer.picturecaption = pic.caption.text
+				curPlayer.pictureid = pic.link
 			elif i == 2:
 				curPlayer.picturetwo = picture
 				curPlayer.picturetwotime = pic.created_time
 				curPlayer.picturetwocaption = pic.caption.text
+				curPlayer.picturetwoid = pic.link
 			else:
 				curPlayer.picturethree = picture
 				curPlayer.picturethreetime = pic.created_time
 				curPlayer.picturethreecaption = pic.caption.text
+				curPlayer.picturethreeid = pic.link
 			db.session.commit()
 			i = i + 1
 	return "done."

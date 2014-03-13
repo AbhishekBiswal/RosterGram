@@ -79,7 +79,7 @@ $(document).ready(function(){
     var labels = [];
 
     $('.team-select input:checked').each(function() {
-      labels.push(encodeURIComponent($(this).next('span').html().replace(/\s+/g, '').replace('&', '-and-'));
+      labels.push(encodeURIComponent($(this).next('span').html().replace(/\s+/g, '').replace('&', '-and-')));
       // finds labels next to inputs, and removes whitespace, and encodes to URL
     });
 

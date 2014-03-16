@@ -129,6 +129,7 @@ def addPlayerSub():
 	tid = request.form['teamID']
 	name = request.form['name']
 	ig = request.form['ig']
+	twitter = request.form['twitter']
 	if (tid is None) or (ig is None) or (name is None):
 		return redirect("/dash/add-player?error=1")
 	url = "https://api.instagram.com/v1/users/search?q="+ig+"&access_token="+access_token
@@ -146,6 +147,37 @@ def addPlayerSub():
 	db.session.add(newPlayer)
 	db.session.commit()
 	return redirect("/dash")
+
+@app.route("/dash/edit-player", methods=['GET'])
+def editPlayer():
+	if not session.get('loggedin'):
+		return redirect("/admin")
+	if request.args.get('pid') is None:
+		return redirect("/dash")
+	pid = request.args.get('pid')
+	# loading the variables.
+	data = Players.query.filter_by(pid=pid).first()
+	if data is None:
+		return "Player doesn't exist"
+	return render_template("edit-player.html", data=data)
+
+@app.route("/dash/edit-player/sub", methods=['POST'])
+def editPlayerSub():
+	if not session.get('loggedin'):
+		return redirect("/admin")
+	name = request.form['name']
+	ig = request.form['ig']
+	twitter = request.form['twitter']
+	pid = request.form['pid']
+	if name is None or ig is None or twitter is None:
+		return redirect("/dash/edit-player?error=1")
+	player = Players.query.filter_by(pid=pid).first()
+	player.name = name
+	player.ig = ig
+	player.twitter = twitter
+	db.session.commit()
+	return redirect("/admin")
+
 
 @app.route("/team/<teamid>", methods=['GET'])
 def teamPage(teamid):

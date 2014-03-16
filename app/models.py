@@ -33,6 +33,7 @@ class Players(db.Model):
 	pid = db.Column(db.Integer, primary_key = True)
 	name = db.Column(db.String(100))
 	ig = db.Column(db.String(100))
+	twitter = db.Column(db.String(300))
 	team = db.Column(db.Integer)
 	userid = db.Column(db.Integer)
 	picture = db.Column(db.String(300))

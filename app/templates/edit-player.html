@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>Add Team</h1><br>
+<form class="add-team" action="/dash/edit-player/sub" method="post">
+	<input type="text" name="name" placeholder="Player Name" value="{{ data.name }}">
+	<input type="text" name="ig" placeholder="Instagram ID" value="{{ data.ig }}">
+	<input type="text" name="twitter" placeholder="Twitter Handle (without @)" value="{{ data.twitter }}">
+	<input type="hidden" name="pid" value="{{ data.pid }}">
+	<input type="submit" class="btn btn-primary" value="Update">
+</form>
+
+{% endblock %}

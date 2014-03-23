@@ -18,7 +18,8 @@ $(document).ready(function(){
       var label = encodeURIComponent($(this).find('span').html().replace(/\s+/g, '').replace('&', '-and-'));
       var historyState = History.getState().data;
 
-      console.log($(this).find('span').html().replace(/\s+/g, '').replace('&', '-and-'), label);
+      console.log('Before encode -> ' + $(this).find('span').html().replace(/\s+/g, '').replace('&', '-and-'));
+      console.log('Encoded -> ' + label);
 
       if ( jQuery.inArray( label, historyState ) !== -1 ) {
         $(this).prev().prop('checked', true);

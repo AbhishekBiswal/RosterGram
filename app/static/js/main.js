@@ -18,6 +18,8 @@ $(document).ready(function(){
       var label = encodeURIComponent($(this).find('span').html().replace(/\s+/g, '').replace('&', '-and-'));
       var historyState = History.getState().data;
 
+      console.log(label);
+
       if ( jQuery.inArray( label, historyState ) !== -1 ) {
         $(this).prev().prop('checked', true);
       } else {
@@ -79,8 +81,10 @@ $(document).ready(function(){
     var labels = [];
 
     $('.team-select input:checked').each(function() {
-      labels.push(encodeURIComponent($(this).next('span').html().replace(/\s+/g, '').replace('&', '-and-')));
+      var label = encodeURIComponent($(this).next('span').html().replace(/\s+/g, '').replace('&', '-and-'));
+      labels.push(label);
       // finds labels next to inputs, and removes whitespace, and encodes to URL
+      console.log(label + ' (checkURL)');
     });
 
     History.pushState(labels, 'RosterGram', '?t=' + labels.join('+'));

@@ -218,6 +218,8 @@ h5, h6 {
     clear: both;
 }
 
+.full { width: 100%; }
+
 .half, .twoquarters, .threesixths { width: 50%; }
 
 .onethird, .twosixths { width: 33.333333%; }
@@ -628,10 +630,20 @@ $card-color: $sec-color;
 }
 
 .player__social {
-  display: inline-block;  vertical-align: middle;  
-  margin-left: .75em;
+  display: inline-block;
+  vertical-align: middle;  
+  margin: -.4em 0 0 1em;
+
   span {
-    margin-left: .75em;
+    margin-left: 1em;
+  }
+
+  i {
+    opacity: .4;
+    position: relative;
+    font-size: 1.25em;
+    top: .2em;
+    margin-right: .25em;
   }
 }
 

@@ -9,7 +9,7 @@
 		<h1><a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a></h1>
 		<footer class="admin-card__meta">
 			<div class="admin-card__meta__editlink">
-				<a href="#">Edit Instagram ID</a>
+				<a href="/admin/edit-player?pid={{ item.twitter }}">Edit Instagram ID / Twitter</a>
 			</div>
 			<div class="admin-card__meta__delete">
 				<a href="/dash/delplayer/{{ item.pid }}?next={{ item.team }}">Delete Player?</a>

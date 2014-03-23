@@ -32,10 +32,12 @@
   {% for team in db.session.query(Team).filter_by(tid=item.team) %}
 
   <section class="home__player">
-  <h1 class="player__name">{{ item.name }}</h1>
-  <div class="player__social">
-    <span class="player__instagram"><i class="icon-instagram"></i> <a href="http://instagram.com/{{ item.ig }}">@{{ item.ig }}</a></span>
-    <span class="player__twitter"><i class="icon-twitter"></i> <a href="http://twitter.com/{{ item.twitter }}">@{{ item.twitter }}</a></span>
+  <div class="sympl full">
+    <h1 class="player__name">{{ item.name }}</h1>
+    <div class="player__social">
+      <span class="player__instagram"><i class="icon-instagram"></i> <a href="http://instagram.com/{{ item.ig }}">@{{ item.ig }}</a></span>
+      <span class="player__twitter"><i class="icon-twitter"></i> <a href="http://twitter.com/{{ item.twitter }}">@{{ item.twitter }}</a></span>
+    </div>
   </div>
 
     <div class="sympl onethird m-full team team{{item.team}}">
@@ -54,9 +56,6 @@
             <a href="{{ item.pictureid }}">&lsquo;{{ item.picturecaption }}&rsquo;</a>
           </h1>
           <div class="home-card__by"> by <a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a>  of {{ team.teamname }}</div>
-          <footer class="home-card__meta">
-            <a target="_blank" href="#"><i class="icon-chat"></i></a>
-          </footer>
         </div>
       </section>
     </div>

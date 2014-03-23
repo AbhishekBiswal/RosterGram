@@ -18,7 +18,7 @@ $(document).ready(function(){
       var label = encodeURIComponent($(this).find('span').html().replace(/\s+/g, '').replace('&', '-and-'));
       var historyState = History.getState().data;
 
-      console.log(label);
+      console.log($(this).find('span').html().replace(/\s+/g, '').replace('&', '-and-'), label);
 
       if ( jQuery.inArray( label, historyState ) !== -1 ) {
         $(this).prev().prop('checked', true);
@@ -84,7 +84,6 @@ $(document).ready(function(){
       var label = encodeURIComponent($(this).next('span').html().replace(/\s+/g, '').replace('&', '-and-'));
       labels.push(label);
       // finds labels next to inputs, and removes whitespace, and encodes to URL
-      console.log(label + ' (checkURL)');
     });
 
     History.pushState(labels, 'RosterGram', '?t=' + labels.join('+'));

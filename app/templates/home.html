@@ -36,7 +36,9 @@
     <h1 class="player__name">{{ item.name }}</h1>
     <div class="player__social">
       <span class="player__instagram"><i class="icon-instagram"></i> <a href="http://instagram.com/{{ item.ig }}">{{ item.ig }}</a></span>
-      <span class="player__twitter"><i class="icon-twitter"></i> <a href="http://twitter.com/{{ item.twitter }}">{{ item.twitter }}</a></span>
+      {% if item.twitter %} 
+        <span class="player__twitter"><i class="icon-twitter"></i> <a href="http://twitter.com/{{ item.twitter }}">{{ item.twitter }}</a></span>
+      {% endif %}
     </div>
   </div>
 

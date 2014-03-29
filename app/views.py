@@ -257,7 +257,7 @@ def fetchPics():
 		try:
 			recent_media, next = api.user_recent_media(user_id=p.userid, count=3)
 		except Exception:
-			errorMsg = "This user is private "+p.name
+			errorMsg = "Oops! Seems like "+p.name + " is now a private user, which is interfering with the script. Please delete the user from the admin backend and try again!"
 			return errorMsg
 		i = 1
 		#return str(recent_media)

@@ -254,25 +254,30 @@ def fetchPics():
 	j = 0
 	for p in players:
 		j = j + 1
-		recent_media, next = api.user_recent_media(user_id=p.userid, count=3)
+		try:
+			recent_media, next = api.user_recent_media(user_id=p.userid, count=3)
+		except Exception:
+			errorMsg = "This user is private "+p.name
+			return errorMsg
 		i = 1
 		#return str(recent_media)
 		for pic in recent_media:
 			picture = pic.images["standard_resolution"].url
 			curPlayer = Players.query.filter_by(pid=p.pid).first()
 			if i == 1:
+				#name = curPlayer.name
 				curPlayer.picture = picture
-				curPlayer.picturetime = pic.created_time
+				#curPlayer.picturetime = pic.created_time
 				curPlayer.picturecaption = pic.caption.text
 				curPlayer.pictureid = pic.link
 			elif i == 2:
 				curPlayer.picturetwo = picture
-				curPlayer.picturetwotime = pic.created_time
+				#curPlayer.picturetwotime = pic.created_time
 				curPlayer.picturetwocaption = pic.caption.text
 				curPlayer.picturetwoid = pic.link
 			else:
 				curPlayer.picturethree = picture
-				curPlayer.picturethreetime = pic.created_time
+				#curPlayer.picturethreetime = pic.created_time
 				curPlayer.picturethreecaption = pic.caption.text
 				curPlayer.picturethreeid = pic.link
 			db.session.commit()

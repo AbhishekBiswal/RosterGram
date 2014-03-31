@@ -268,17 +268,26 @@ def fetchPics():
 				#name = curPlayer.name
 				curPlayer.picture = picture
 				#curPlayer.picturetime = pic.created_time
-				curPlayer.picturecaption = pic.caption.text
+				if pic.caption is None:
+					curPlayer.picturecaption = ""
+				else:	
+					curPlayer.picturecaption = pic.caption.text
 				curPlayer.pictureid = pic.link
 			elif i == 2:
 				curPlayer.picturetwo = picture
 				#curPlayer.picturetwotime = pic.created_time
-				curPlayer.picturetwocaption = pic.caption.text
+				if pic.caption is None:
+					curPlayer.picturetwocaption = ""
+				else:	
+					curPlayer.picturetwocaption = pic.caption.text
 				curPlayer.picturetwoid = pic.link
 			else:
 				curPlayer.picturethree = picture
 				#curPlayer.picturethreetime = pic.created_time
-				curPlayer.picturethreecaption = pic.caption.text
+				if pic.caption is None:
+					curPlayer.picturethreecaption = ""
+				else:	
+					curPlayer.picturethreecaption = pic.caption.text
 				curPlayer.picturethreeid = pic.link
 			db.session.commit()
 			i = i + 1

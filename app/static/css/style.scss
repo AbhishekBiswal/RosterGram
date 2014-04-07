@@ -332,40 +332,68 @@ h5, h6 {
   background: $light-grey;
   overflow: hidden; 
   margin-bottom: 1.5em;
-  height: 3em;
-  position: fixed;
-  left: 0; right: 0; top: 0;
+  padding: 1em 0 0;
+  background: #2c3e50;
+  color: #95a5a6;
+}
 
-  display: none;
+
+.logo {
+  float: left;
+  margin-bottom: 1em;
 }
 
 .logo h1 { 
   margin: 0; 
-  float: left; 
-  padding: .5em 0;
   font-family: $main-font-family;
   font-size: 2em;
   line-height: 1;
+  padding: 0;
+  color: #ecf0f1;
 }
 
-.menu { float: right; }
-.menu ul { padding: 1.5em 0; margin: 0; }
+.logo .subtitle {
+  font-style: italic;
+  font-size:  .875em;
+}
+
+.masthead__social {
+  float: right;
+  font-size: 2em;
+}
+
+
+.menu { float: left; }
+.menu ul { padding: 0; margin: 0; }
 
 .menu li {
   list-style: none;
   display: inline-block;
-  margin: 0 0 .5em .5em;
+  margin: 0;
+
 }
 
 .menu a {
-  padding: .5em;
-  border: .25em solid $prim-color;
+  padding: 1em 1.5em;
   display: block;
+  margin: 0;
+  background: #34495e;
 }
 
 .menu a:hover {
-  background: $prim-color;
   color: white;
+  background: #1abc9c;
+}
+
+.sub-masthead {
+  clear: both;
+  border-top: thin solid  #34495e;
+}
+
+.sub-masthead__title {
+  font-size: 1.5em;
+  float: right;
+  margin-top: .375em;
 }
 
 

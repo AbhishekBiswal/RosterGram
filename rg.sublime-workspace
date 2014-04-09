@@ -11,24 +11,24 @@
 			"file": "app/models.py",
 			"settings":
 			{
-				"buffer_size": 1086,
-				"line_ending": "Unix"
+				"buffer_size": 1672,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/config.py",
 			"settings":
 			{
-				"buffer_size": 304,
-				"line_ending": "Unix"
+				"buffer_size": 302,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/views.py",
 			"settings":
 			{
-				"buffer_size": 4546,
-				"line_ending": "Unix"
+				"buffer_size": 9339,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -43,16 +43,32 @@
 			"file": "app/templates/home.html",
 			"settings":
 			{
-				"buffer_size": 2484,
-				"line_ending": "Unix"
+				"buffer_size": 3927,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/templates/dash.html",
 			"settings":
 			{
-				"buffer_size": 304,
-				"line_ending": "Unix"
+				"buffer_size": 814,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/templates/frontend.html",
+			"settings":
+			{
+				"buffer_size": 1698,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/static/css/style.scss",
+			"settings":
+			{
+				"buffer_size": 14787,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -67,10 +83,7 @@
 	},
 	"console":
 	{
-		"height": 0.0,
-		"history":
-		[
-		]
+		"height": 0.0
 	},
 	"distraction_free":
 	{
@@ -83,6 +96,9 @@
 	},
 	"file_history":
 	[
+		"/A/Dropbox/_Work/Work/[MAKEUSEOF]/46204/clean-pt/js/script.js",
+		"/A/Dropbox/School/2014/gvc/src/jade/about/education.jade",
+		"/A/Dropbox/_Work/Work/[MAKEUSEOF]/46204/clean-pt/head.html",
 		"/home/ab/projects/flask/rg/app/templates/players.html",
 		"/home/ab/projects/flask/rg/app/templates/add-player.html",
 		"/home/ab/projects/flask/rg/app/templates/home.html",
@@ -124,24 +140,23 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
 					"file": "app/models.py",
-					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1086,
+						"buffer_size": 1672,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1008,
-								1008
+								0,
+								0
 							]
 						],
 						"settings":
@@ -158,18 +173,17 @@
 				{
 					"buffer": 1,
 					"file": "app/config.py",
-					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 304,
+						"buffer_size": 302,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								304,
-								304
+								0,
+								0
 							]
 						],
 						"settings":
@@ -185,18 +199,17 @@
 				{
 					"buffer": 2,
 					"file": "app/views.py",
-					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4546,
+						"buffer_size": 9339,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								728,
-								728
+								0,
+								0
 							]
 						],
 						"settings":
@@ -213,7 +226,6 @@
 				{
 					"buffer": 3,
 					"file": "app/templates/teampage.html",
-					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 436,
@@ -241,18 +253,45 @@
 				{
 					"buffer": 4,
 					"file": "app/templates/home.html",
-					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2484,
+						"buffer_size": 3927,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								754,
-								754
+								572,
+								572
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/templates/dash.html",
+					"settings":
+					{
+						"buffer_size": 814,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -261,34 +300,63 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 706.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "app/templates/dash.html",
-					"semi_transient": false,
+					"buffer": 6,
+					"file": "app/templates/frontend.html",
 					"settings":
 					{
-						"buffer_size": 304,
+						"buffer_size": 1698,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								156,
-								156
+								1378,
+								1378
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/static/css/style.scss",
+					"settings":
+					{
+						"buffer_size": 14787,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9469,
+								9469
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5124.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -327,7 +395,6 @@
 		]
 	},
 	"menu_visible": true,
-	"project": "rg.sublime-project",
 	"replace":
 	{
 		"height": 46.0
@@ -338,6 +405,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"style",
+				"static/css/style.scss"
+			],
+			[
+				"fron",
+				"templates/frontend.html"
+			],
 			[
 				"dash",
 				"templates/dash.html"
@@ -393,24 +468,10 @@
 		],
 		"width": 380.0
 	},
-	"select_symbol":
-	{
-		"height": 0.0,
-		"selected_items":
-		[
-		],
-		"width": 0.0
-	},
-	"settings":
-	{
-	},
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": false,
 	"side_bar_width": 150.0,
-	"status_bar_visible": true,
-	"template_settings":
-	{
-	}
+	"status_bar_visible": true
 }

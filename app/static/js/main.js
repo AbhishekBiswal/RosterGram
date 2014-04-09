@@ -90,4 +90,10 @@ $(document).ready(function(){
     History.pushState(labels, 'RosterGram', '?t=' + labels.join('+'));
   }
 
+  (function seeAbout() {
+    $('.js--show-about').click(function() {
+      $('.about').slideToggle();
+    };
+  }());
+
 });

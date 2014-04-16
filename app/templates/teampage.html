@@ -1,32 +1,101 @@
-<!DOCTYPE html>
+{% extends "frontend.html" %}
 <!--
-	use these inside the for loop ( below ) only.
-	x[0] -> player name
-	x[1] -> player instagram username
-	x[2] -> instagram <numeric> id - no need.
-	x[3] -> player's latest picture.
+	todo : include frontend..11
 -->
-<html>
-<head>
-	<title>{{ pageTitle }}</title>
-</head>
-<body>
 
-<h1>{{ teamName }}</h1>
+{% block title %}
+  <title>RosterGram</title>
+{% endblock %}
 
-<div>
-	
-{% for x in list %}
-	
-	<div>
-		<h2>Name : {{ x[0] }}</h2>
-		<br>
-		<img src="{{ x[3] }}">
-	</div>
 
-{% endfor %}
+{% block content %}
 
+<h2>{{ teamName }}</h2>
+
+<div class="stack stack-sympl home-card-container">
+  {% for item in db.session.query(Players).filter_by(team=teamid) %}
+  {% for team in db.session.query(Team).filter_by(tid=item.team) %}
+
+  <section class="home__player team team{{item.team}}">
+  <div class="sympl full">
+    <h1 class="player__name">{{ item.name }}</h1>
+    <div class="player__social">
+      <span class="player__instagram"><i class="icon-instagram"></i> <a href="http://instagram.com/{{ item.ig }}">{{ item.ig }}</a></span>
+      {% if item.twitter %} 
+        <span class="player__twitter"><i class="icon-twitter"></i> <a href="http://twitter.com/{{ item.twitter }}">{{ item.twitter }}</a></span>
+      {% endif %}
+    </div>
+  </div>
+
+    <div class="sympl onethird m-full">
+      <section class="home-card">
+        <a href="#" class="home-card__img">
+          <img src="{{ item.picture }}">
+        </a>
+  
+        <footer class="team-colors">
+          <span style="background-color: {{ team.colorone }}"></span>
+          <span style="background-color: {{ team.colortwo }}"></span>
+        </footer>
+  
+        <div class="home-card__text">
+          <h1 class="home-card__title">
+            <a href="{{ item.pictureid }}">&lsquo;{{ item.picturecaption }}&rsquo;</a>
+          </h1>
+          <div class="home-card__by"> by <a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a>  of {{ team.teamname }}</div>
+        </div>
+      </section>
+    </div>
+
+    <div class="sympl onethird m-full team team{{item.team}}">
+      <section class="home-card">
+        <a href="#" class="home-card__img">
+          <img src="{{ item.picturetwo }}">
+        </a>
+  
+        <footer class="team-colors">
+          <span style="background-color: {{ team.colorone }}"></span>
+          <span style="background-color: {{ team.colortwo }}"></span>
+        </footer>
+  
+        <div class="home-card__text">
+          <h1 class="home-card__title">
+            <a href="{{ item.picturetwoid }}">&lsquo;{{ item.picturetwocaption }}&rsquo;</a>
+          </h1>
+          <div class="home-card__by"> by <a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a>  of {{ team.teamname }}</div>
+          <footer class="home-card__meta">
+            <a target="_blank" href="http://instagram/{{ item.ig }}"><i class="icon-chat"></i></a>
+          </footer>
+        </div>
+      </section>
+    </div>
+
+    <div class="sympl onethird m-full team team{{item.team}}">
+      <section class="home-card">
+        <a href="#" class="home-card__img">
+          <img src="{{ item.picturethree }}">
+        </a>
+  
+        <footer class="team-colors">
+          <span style="background-color: {{ team.colorone }}"></span>
+          <span style="background-color: {{ team.colortwo }}"></span>
+        </footer>
+  
+        <div class="home-card__text">
+          <h1 class="home-card__title">
+            <a href="{{ item.picturethreeid }}">&lsquo;{{ item.picturethreecaption }}&rsquo;</a>
+          </h1>
+          <div class="home-card__by"> by <a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a>  of {{ team.teamname }}</div>
+          <footer class="home-card__meta">
+            <a target="_blank" href="http://instagram/{{ item.ig }}"><i class="icon-chat"></i></a>
+          </footer>
+        </div>
+      </section>
+    </div>
+
+  </section>
+  {% endfor %}
+  {% endfor %}
 </div>
 
-</body>
-</html>
+{% endblock %}<!-- content block -->

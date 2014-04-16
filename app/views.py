@@ -183,21 +183,7 @@ def editPlayerSub():
 def teamPage(teamid):
 	loadTeam = Team.query.filter_by(tid = teamid).first()
 	teamName = loadTeam.teamname
-	i = 0
-	list = []
-	for item in db.session.query(Players).filter_by(team=teamid):
-		list.append([])
-		list[i].append(item.name)
-		list[i].append(item.ig)
-		list[i].append(item.userid)
-		list[i].append(item.team)
-		recent_media, next = api.user_recent_media(user_id=item.userid, count=1)
-		for media in recent_media:
-			image = media.images['thumbnail'].url
-			list[i].append(image)
-		i = i + 1
-
-	return render_template("teampage.html", pageTitle = "Team Page", Players=Players, teamid=teamid, db=db, teamName=teamName, list=list, media=media)
+	return render_template("teampage.html", pageTitle = "Team Page", Players=Players, teamid=teamid, Team=Team, db=db, teamName=teamName, list=list)
 
 @app.route("/p/<pid>/<mid>")
 def picPage(pid, mid):

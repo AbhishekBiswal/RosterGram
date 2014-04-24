@@ -32,12 +32,11 @@
   	<div class="sub-masthead">
       <nav class="menu" role="navigation">
           <ul>
-              <li><a href="#">Item 1</a>
-              </li><li><a href="#">Item 2</a>
-              </li><li><a href="#">Item 3</a>
-              </li><li><a href="#">Item 4</a>
-              </li><li><a href="#" class="js--show-about">About</a>
-          </li></ul>
+          {% for team in db.session.query(Team) %}
+              <li><a href="/team/{{ team.tid }}">{{ team.teamname }}</a>
+          {% endfor %}
+              </li><li><a href="#" class="js--show-about">About</a></li>
+          </ul>
       </nav><!-- /nav.menu -->
   
       <div class="sub-masthead__title">

@@ -253,7 +253,7 @@ def fetchPics():
 			if i == 1:
 				#name = curPlayer.name
 				curPlayer.picture = picture
-				#curPlayer.picturetime = pic.created_time
+				curPlayer.picturetime = pic.created_time
 				if pic.caption is None:
 					curPlayer.picturecaption = ""
 				else:	

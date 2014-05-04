@@ -28,7 +28,7 @@
 
 
 <div class="stack stack-sympl home-card-container">
-  {% for item in db.session.query(Players).order_by(Players.picturetime.desc()) %}
+  {% for item in db.session.query(Players).order_by(Players.picturetime.desc()).limit(3) %}
   {% for team in db.session.query(Team).filter_by(tid=item.team) %}
 
   <section class="home__player team team{{item.team}}">

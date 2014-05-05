@@ -10,7 +10,7 @@
 
 
 {% block content %}
-<div class="team-select-container">
+{# <!-- <div class="team-select-container">
   {% for team in db.session.query(Team) %}
   <div class="team-select">
   	<div>
@@ -23,7 +23,7 @@
   {% endfor %}
 
   <a href="#" class="show-all-teams js--all-teams">Show All Teams.</a>
-</div>
+</div> --> #}
 
 
 
@@ -31,8 +31,7 @@
   {% for item in db.session.query(Players).order_by(Players.picturetime.desc()).limit(3) %}
   {% for team in db.session.query(Team).filter_by(tid=item.team) %}
 
-  <section class="home__player team team{{item.team}}">
-  <!-- <div class="sympl full">
+  {# <!-- <div class="sympl full">
     <h1 class="player__name">{{ item.name }}</h1>
     <div class="player__social">
       <span class="player__instagram"><i class="icon-instagram"></i> <a href="http://instagram.com/{{ item.ig }}">{{ item.ig }}</a></span>
@@ -40,7 +39,7 @@
         <span class="player__twitter"><i class="icon-twitter"></i> <a href="http://twitter.com/{{ item.twitter }}">{{ item.twitter }}</a></span>
       {% endif %}
     </div>
-  </div> -->
+  </div> --> #}
 
     <div class="sympl onethird m-full">
       <section class="home-card">
@@ -62,7 +61,7 @@
       </section>
     </div>
 
-    <!-- <div class="sympl onethird m-full team team{{item.team}}">
+    {# <!-- <div class="sympl onethird m-full team team{{item.team}}">
       <section class="home-card">
         <a href="#" class="home-card__img">
           <img src="{{ item.picturetwo }}">
@@ -106,9 +105,8 @@
           </footer>
         </div>
       </section>
-    </div> -->
+    </div> --> #}
 
-  </section>
   {% endfor %}
   {% endfor %}
 </div>

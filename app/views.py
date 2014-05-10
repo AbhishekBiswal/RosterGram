@@ -72,9 +72,10 @@ def addTeamSub():
 	teamName = request.form['tname']
 	colorOne = request.form['tcolorone']
 	colorTwo = request.form['tcolortwo']
+	cat = request.form['cat']
 	if (teamName is None) or (colorOne is None) or (colorTwo is None):
 		return redirect("/dash/add-team?error=1")
-	newTeam = Team(teamName, colorOne, colorTwo)
+	newTeam = Team(teamName, colorOne, colorTwo, cat)
 	db.session.add(newTeam)
 	db.session.commit()
 	return redirect("/dash")
@@ -219,12 +220,15 @@ def editColorsSub():
 		return redirect("/")
 	colorOne = request.form['tcolorone']
 	colorTwo = request.form['tcolortwo']
+	cat= request.form['cat']
 	tid = request.form['tid']
 	team = Team.query.filter_by(tid=tid).first()
+	#return cat
 	if team is None:
 		return "Error 1"
 	team.colorone = colorOne
 	team.colortwo = colorTwo
+	team.cat = cat
 	db.session.commit()
 	return redirect("/dash")
 

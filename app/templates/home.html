@@ -25,6 +25,47 @@
   <a href="#" class="show-all-teams js--all-teams">Show All Teams.</a>
 </div>
 
+<!-- Categories Drop Down List. -->
+
+<ul>
+  <li>ACC
+      <ul>
+        {% for team in db.session.query(Team).filter_by(cat="ACC") %}
+        <li><a href="/team/{{ team.tid }}">{{ team.name }}</a></li>
+        {% endfor %}
+      </ul>
+  </li>
+  <li>Big 12
+      <ul>
+        {% for team in db.session.query(Team).filter_by(cat="Big 12") %}
+        <li><a href="/team/{{ team.tid }}">{{ team.name }}</a></li>
+        {% endfor %}
+      </ul>
+  </li>
+  <li>Big Ten
+      <ul>
+        {% for team in db.session.query(Team).filter_by(cat="Big Ten") %}
+        <li><a href="/team/{{ team.tid }}">{{ team.name }}</a></li>
+        {% endfor %}
+      </ul>
+  </li>
+  <li>Pac-12
+      <ul>
+        {% for team in db.session.query(Team).filter_by(cat="Pac-12") %}
+        <li><a href="/team/{{ team.tid }}">{{ team.name }}</a></li>
+        {% endfor %}
+      </ul>
+  </li>
+  <li>SEC
+      <ul>
+        {% for team in db.session.query(Team).filter_by(cat="SEC") %}
+        <li><a href="/team/{{ team.tid }}">{{ team.name }}</a></li>
+        {% endfor %}
+      </ul>
+  </li>
+</ul>
+
+<!-- Cat dropdown end -->
 
 
 <div class="stack stack-sympl home-card-container">

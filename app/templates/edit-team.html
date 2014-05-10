@@ -5,6 +5,14 @@
 <form class="add-team" action="/dash/edit-colors/sub" method="post">
 	<input type="text" name="tcolorone" placeholder="Color One" value="{{ team.colorone }}">
 	<input type="text" name="tcolortwo" placeholder="Color Two" value="{{ team.colortwo }}">
+	<select name="cat">
+		<option value="NULL" {% if team.cat == "NULL" %}selected{% endif %}>Select Category</option>
+		<option {% if team.cat == "ACC" %}selected{% endif %} value="ACC">ACC</option>
+		<option value="Big 12" {% if team.cat == "Big 12" %}selected{% endif %}>Big 12</option>
+		<option value="Big Ten" {% if team.cat == "Big Ten" %}selected{% endif %}>Big Ten</option>
+		<option value="Pac-12" {% if team.cat == "Pac-12" %}selected{% endif %}>Pac-12</option>
+		<option value="SEC" {% if team.cat == "SEC" %}selected{% endif %}>SEC</option>
+	</select>
 	<input type="hidden" name="tid" value="{{ team.tid }}">
 	<input type="submit" class="btn btn-primary" value="Save">
 </form>

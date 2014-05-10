@@ -19,11 +19,13 @@ class Team(db.Model):
 	teamname = db.Column(db.String(100))
 	colorone = db.Column(db.String(100))
 	colortwo = db.Column(db.String(100))
+	cat = db.Column(db.String(300))
 
 	def __init__(self, teamname, colorone, colortwo):
 		self.teamname = teamname
 		self.colorone = colorone
 		self.colortwo = colortwo
+		self.cat = cat
 
 	def disp(self):
 		Team.query.all()

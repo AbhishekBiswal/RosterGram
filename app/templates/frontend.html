@@ -32,20 +32,13 @@
   	<div class="sub-masthead">
       <nav class="menu" role="navigation">
           <ul>
-          {% for team in db.session.query(Team) %}
-              <li><a href="/team/{{ team.tid }}">{{ team.teamname }}</a>
-          {% endfor %}
-              </li><li><a href="#" class="js--show-about">About</a></li>
-          </ul>
-
-          <ul>
             <li><span>ACC</span>
                 <ul>
                   {% for team in db.session.query(Team).filter_by(cat="ACC") %}
                   <li><a href="/team/{{ team.tid }}">{{ team.teamname }}</a></li>
                   {% endfor %}
                 </ul>
-                
+
             </li><li><span>Big 12</span>
                 <ul>
                   {% for team in db.session.query(Team).filter_by(cat="Big 12") %}
@@ -73,8 +66,8 @@
                   <li><a href="/team/{{ team.tid }}">{{ team.teamname }}</a></li>
                   {% endfor %}
                 </ul>
-            </li>
-            <li><a href="#" class="js--show-about">About</a></li>
+
+            </li><li><a href="#" class="js--show-about">About</a></li>
           </ul>
       </nav><!-- /nav.menu -->
   

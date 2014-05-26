@@ -90,22 +90,18 @@ $(document).ready(function(){
     History.pushState(labels, 'RosterGram', '?t=' + labels.join('+'));
   }
 
-  (function() {
-    // Making about thingy come up n down
-    $('.js--show-about').click(function(e) {
-      e.preventDefault();
-      $(this).toggleClass('menu-item--active');
-      $('.about').slideToggle();
-    });
-  }())
+  // Making about thingy come up n down
+  $('.js--show-about').on('click', function(e) {
+    e.preventDefault();
+    $(this).toggleClass('menu-item--active');
+    $('.about').slideToggle();
+  });
 
-  (function() {
-    $('.menu a').on('click', function(e) {
-      e.preventDefault();
-      $(this).toggleClass('menu-item--active');
-      if ( $(this).find('ul').length != 0 )
-        $(this).find('ul').slideToggle();
-    });
-  }());
+  $('.menu a').on('click', function(e) {
+    e.preventDefault();
+    $(this).toggleClass('menu-item--active');
+    if ( $(this).find('ul').length != 0 )
+      $(this).find('ul').slideToggle();
+  });
 
 });

@@ -97,7 +97,7 @@ $(document).ready(function(){
     $('.about').slideToggle();
   });
 
-  $('.menu a').on('click', function(e) {
+  $('.menu > ul > li > span').on('click', function(e) {
     e.preventDefault();
     $(this).toggleClass('menu-item--active');
     if ( $(this).find('ul').length != 0 )

@@ -97,8 +97,16 @@ $(document).ready(function(){
     $('.about').slideToggle();
   });
 
+  function flushMenu () {
+    $('.menu > ul > li > span').each(function() {
+      $(this).removeClass('menu-item--active');
+      $(this).next('ul').slideUp();
+    });
+  }
+
   $('.menu > ul > li > span').on('click', function(e) {
     e.preventDefault();
+    flushMenu();
     $(this).toggleClass('menu-item--active');
     $(this).next('ul').slideToggle();
   });

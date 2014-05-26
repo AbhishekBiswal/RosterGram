@@ -93,8 +93,16 @@ $(document).ready(function(){
   (function() {
     // Making about thingy come up n down
     $('.js--show-about').click(function() {
+      $(this).toggleClass('menu-item--active');
       $('.about').slideToggle();
     });
   }())
+
+  (function() {
+    $('.menu a:not(.js--show-about)').on('click', function() {
+      $(this).toggleClass('menu-item--active');
+      $(this).find('ul').slideToggle()
+    });
+  }());
 
 });

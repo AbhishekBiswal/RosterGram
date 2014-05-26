@@ -407,7 +407,8 @@ h5, h6 {
   display: none;
   position: absolute;
   width: 15em;
-  background: darken(#34495e, 5%);
+  background: darken(#34495e, 15%);
+  border-top: thin solid lighten(#34495e, 10%);
   z-index: 15;
   
   li {

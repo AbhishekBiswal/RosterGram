@@ -100,8 +100,7 @@ $(document).ready(function(){
   $('.menu > ul > li > span').on('click', function(e) {
     e.preventDefault();
     $(this).toggleClass('menu-item--active');
-    if ( $(this).find('ul').length != 0 )
-      $(this).find('ul').slideToggle();
+    $(this).next('ul').slideToggle();
   });
 
 });

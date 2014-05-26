@@ -366,6 +366,10 @@ h5, h6 {
 .menu { float: left; }
 .menu ul { padding: 0; margin: 0; }
 
+.menu > ul > li {
+  position: relative;
+}
+
 .menu li {
   list-style: none;
   display: inline-block;
@@ -373,17 +377,41 @@ h5, h6 {
 
 }
 
-.menu a {
+.menu li span, .menu > ul > li > a {
   padding: 1em 1.5em;
   display: block;
   margin: 0;
   background: #34495e;
+  color: #1abc9c;
+  transition: all .3s ease;
 }
 
 .menu a:hover {
   color: white;
   background: #1abc9c;
 }
+
+
+.menu ul ul {
+  display: none;
+  position: absolute;
+  width: 15em;
+  background: darken(#34495e, 5%);
+  z-index: 15;
+  
+  li {
+    display: block;
+  }
+
+  a {
+    display: block;
+    padding: 1em;
+  }
+}
+
+
+
+
 
 .sub-masthead {
   clear: both;

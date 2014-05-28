@@ -97,16 +97,16 @@ $(document).ready(function(){
     $('.about').slideToggle();
   });
 
-  function flushMenu () {
-    $('.menu > ul > li > span').each(function() {
+  function flushMenu ($current) {
+    $('.menu > ul > li > span').not($current).each(function() {
       $(this).removeClass('menu-item--active');
       $(this).next('ul').slideUp();
     });
   }
 
-  $('.menu > ul > li > span').on('click', function(e) {
+  $('.menu > ul > li > span').on('hover', function(e) {
     e.preventDefault();
-    flushMenu();
+    flushMenu( $(this).get() );
     $(this).toggleClass('menu-item--active');
     $(this).next('ul').slideToggle();
   });

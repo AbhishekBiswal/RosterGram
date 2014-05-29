@@ -107,8 +107,9 @@ $(document).ready(function(){
     }
 
     $menuItems.hover(
-      flushItems(); 
+
       function(e) {
+        flushItems(); 
         if ( $(e.target).is('span') ) { // If hovered on menu item
           var $item = $(e.target);
           $item.addClass('menu-item--active');
@@ -123,6 +124,7 @@ $(document).ready(function(){
           $item.removeClass('menu-item--active');
           $item.next('ul').slideUp();
         }
+        
       });
 
   }());

@@ -105,7 +105,7 @@ $(document).ready(function(){
     });
   }
 
-  $('.menu > ul > li > span').on('hover', function(e) {
+  $('.menu > ul > li > span').hover( function(e) {
     e.preventDefault();
     console.log( 'Hovering' )
     flushMenu( $(this).get() );

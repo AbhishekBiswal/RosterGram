@@ -99,22 +99,29 @@ $(document).ready(function(){
   var controlMenu = (function() {
     $menuItems = $('.menu > ul > li');
 
-    $menuItems.hover( 
+    function flushItems() {
+      $('.menu > ul > li > span').each(function() {
+        $(this).removeClass('menu-item--active');
+        $(this).next('ul').slideUp();
+      }); 
+    }
+
+    $menuItems.hover(
+      flushItems(); 
       function(e) {
         if ( $(e.target).is('span') ) { // If hovered on menu item
           var $item = $(e.target);
           $item.addClass('menu-item--active');
           $item.next('ul').slideDown();
-          console.log( 'Hovering on menu item' );
         }
       },
 
       function(e) {
+        flushItems();
         if ( !$(e.target).is('.menu') ) {
           var $item = $(e.target);
           $item.removeClass('menu-item--active');
           $item.next('ul').slideUp();
-          console.log( 'Hovering apart from the menu' )
         }
       });
 

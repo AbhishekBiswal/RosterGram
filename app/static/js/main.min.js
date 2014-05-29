@@ -96,22 +96,28 @@ $(document).ready(function(){
     $(this).toggleClass('menu-item--active');
     $('.about').slideToggle();
   });
+  var controlMenu = (function() {
+    $menuItems = $('.menu > ul > li');
 
-  function flushMenu ($current) {
-    $('.menu > ul > li > span').not($current).each(function() {
-      console.log( $(this) )
-      $(this).removeClass('menu-item--active');
-      $(this).next('ul').slideUp();
-    });
-  }
+    $menuItems.hover( 
+      function(e) {
+        if ( $(e.target).is('span') ) { // If hovered on menu item
+          $(this).addClass('menu-item--active');
+          $(this).next('ul').slideDown();
+          console.log( 'Hovering on menu item' );
+        }
+      },
 
-  $('.menu > ul > li > span').hover( function(e) {
-    e.preventDefault();
-    console.log( 'Hovering' )
-    flushMenu( $(this).get() );
-    console.log( $(this).get() );
-    $(this).toggleClass('menu-item--active');
-    $(this).next('ul').slideToggle();
-  });
+      function(e) {
+        if ( !$(e.target).is('.menu') ) {
+          $(this).removeClass('menu-item--active');
+          $(this).next('ul').slideUp();
+          console.log( 'Hovering apart from the menu' )
+        }
+      });
+
+  }());
+
+  
 
 });

@@ -102,16 +102,18 @@ $(document).ready(function(){
     $menuItems.hover( 
       function(e) {
         if ( $(e.target).is('span') ) { // If hovered on menu item
-          $(this).addClass('menu-item--active');
-          $(this).next('ul').slideDown();
+          var $item = $(e.target);
+          $item.addClass('menu-item--active');
+          $item.next('ul').slideDown();
           console.log( 'Hovering on menu item' );
         }
       },
 
       function(e) {
         if ( !$(e.target).is('.menu') ) {
-          $(this).removeClass('menu-item--active');
-          $(this).next('ul').slideUp();
+          var $item = $(e.target);
+          $item.removeClass('menu-item--active');
+          $item.next('ul').slideUp();
           console.log( 'Hovering apart from the menu' )
         }
       });

@@ -99,6 +99,7 @@ $(document).ready(function(){
 
   function flushMenu ($current) {
     $('.menu > ul > li > span').not($current).each(function() {
+      console.log( $(this) )
       $(this).removeClass('menu-item--active');
       $(this).next('ul').slideUp();
     });
@@ -106,7 +107,9 @@ $(document).ready(function(){
 
   $('.menu > ul > li > span').on('hover', function(e) {
     e.preventDefault();
+    console.log( 'Hovering' )
     flushMenu( $(this).get() );
+    console.log( $(this).get() );
     $(this).toggleClass('menu-item--active');
     $(this).next('ul').slideToggle();
   });

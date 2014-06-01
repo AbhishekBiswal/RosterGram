@@ -21,7 +21,7 @@ class Team(db.Model):
 	colortwo = db.Column(db.String(100))
 	cat = db.Column(db.String(300))
 
-	def __init__(self, teamname, colorone, colortwo):
+	def __init__(self, teamname, colorone, colortwo, cat):
 		self.teamname = teamname
 		self.colorone = colorone
 		self.colortwo = colortwo

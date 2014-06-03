@@ -25,9 +25,10 @@
   <a href="#" class="show-all-teams js--all-teams">Show All Teams.</a>
 </div> --> #}
 
+<h1 class="page__title">Latest Athlete Pictures</h1>
 
 <div class="stack stack-sympl home-card-container">
-  {% for item in db.session.query(Players).order_by(Players.picturetime.desc()).limit(3) %}
+  {% for item in db.session.query(Players).order_by(Players.picturetime.desc()).limit(6) %}
   {% for team in db.session.query(Team).filter_by(tid=item.team) %}
 
   {# <!-- <div class="sympl full">
@@ -53,9 +54,9 @@
   
         <div class="home-card__text">
           <h1 class="home-card__title">
-            <a href="{{ item.pictureid }}">&lsquo;{{ item.picturecaption }}&rsquo;</a>
+            <a target="_blank" href="{{ item.pictureid }}">&lsquo;{{ item.picturecaption }}&rsquo;</a>
           </h1>
-          <div class="home-card__by"> by <a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a>  of <a href="/team/{{ team.tid }}">{{ team.teamname }}</a></div>
+          <div class="home-card__by"> by <a target="_blank" href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a>  of <a href="/team/{{ team.tid }}">{{ team.teamname }}</a></div>
         </div>
       </section>
     </div>

@@ -4,13 +4,13 @@
 -->
 
 {% block title %}
-  <title>RosterGram</title>
+  <title>{{ teamName }} | RosterGram</title>
 {% endblock %}
 
 
 {% block content %}
 
-<h2>{{ teamName }}</h2>
+<h1 class="page__title">{{ teamName }}</h1>
 
 <div class="stack stack-sympl home-card-container">
   {% for item in db.session.query(Players).filter_by(team=teamid) %}
@@ -20,9 +20,9 @@
   <div class="sympl full">
     <h1 class="player__name">{{ item.name }}</h1>
     <div class="player__social">
-      <span class="player__instagram"><i class="icon-instagram"></i> <a href="http://instagram.com/{{ item.ig }}">{{ item.ig }}</a></span>
+      <span class="player__instagram"><i class="icon-instagram"></i> <a target="_blank" href="http://instagram.com/{{ item.ig }}">{{ item.ig }}</a></span>
       {% if item.twitter %} 
-        <span class="player__twitter"><i class="icon-twitter"></i> <a href="http://twitter.com/{{ item.twitter }}">{{ item.twitter }}</a></span>
+        <span class="player__twitter"><i class="icon-twitter"></i> <a target="_blank" href="http://twitter.com/{{ item.twitter }}">{{ item.twitter }}</a></span>
       {% endif %}
     </div>
   </div>
@@ -40,16 +40,16 @@
   
         <div class="home-card__text">
           <h1 class="home-card__title">
-            <a href="{{ item.pictureid }}">&lsquo;{{ item.picturecaption }}&rsquo;</a>
+            <a target="_blank" href="{{ item.pictureid }}">&lsquo;{{ item.picturecaption }}&rsquo;</a>
           </h1>
-          <div class="home-card__by"> by <a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a>  of {{ team.teamname }}</div>
+          <div class="home-card__by"> by <a target="_blank" href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a>  of {{ team.teamname }}</div>
         </div>
       </section>
     </div>
 
     <div class="sympl onethird m-full team team{{item.team}}">
       <section class="home-card">
-        <a href="#" class="home-card__img">
+        <a target="_blank" href="#" class="home-card__img">
           <img src="{{ item.picturetwo }}">
         </a>
   
@@ -60,11 +60,11 @@
   
         <div class="home-card__text">
           <h1 class="home-card__title">
-            <a href="{{ item.picturetwoid }}">&lsquo;{{ item.picturetwocaption }}&rsquo;</a>
+            <a target="_blank" href="{{ item.picturetwoid }}">&lsquo;{{ item.picturetwocaption }}&rsquo;</a>
           </h1>
-          <div class="home-card__by"> by <a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a>  of {{ team.teamname }}</div>
+          <div class="home-card__by"> by <a target="_blank" href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a>  of {{ team.teamname }}</div>
           <footer class="home-card__meta">
-            <a target="_blank" href="http://instagram/{{ item.ig }}"><i class="icon-chat"></i></a>
+            <a target="_blank" target="_blank" href="http://instagram/{{ item.ig }}"><i class="icon-chat"></i></a>
           </footer>
         </div>
       </section>
@@ -72,7 +72,7 @@
 
     <div class="sympl onethird m-full team team{{item.team}}">
       <section class="home-card">
-        <a href="#" class="home-card__img">
+        <a target="_blank" href="#" class="home-card__img">
           <img src="{{ item.picturethree }}">
         </a>
   
@@ -83,11 +83,11 @@
   
         <div class="home-card__text">
           <h1 class="home-card__title">
-            <a href="{{ item.picturethreeid }}">&lsquo;{{ item.picturethreecaption }}&rsquo;</a>
+            <a target="_blank" href="{{ item.picturethreeid }}">&lsquo;{{ item.picturethreecaption }}&rsquo;</a>
           </h1>
-          <div class="home-card__by"> by <a href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a>  of {{ team.teamname }}</div>
+          <div class="home-card__by"> by <a target="_blank" href="http://instagram.com/{{ item.ig }}">{{ item.name }}</a>  of {{ team.teamname }}</div>
           <footer class="home-card__meta">
-            <a target="_blank" href="http://instagram/{{ item.ig }}"><i class="icon-chat"></i></a>
+            <a target="_blank" target="_blank" href="http://instagram/{{ item.ig }}"><i class="icon-chat"></i></a>
           </footer>
         </div>
       </section>

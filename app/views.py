@@ -179,9 +179,16 @@ def editPlayerSub():
 	db.session.commit()
 	return redirect("/admin")
 
-
 @app.route("/team/<teamid>", methods=['GET'])
-def teamPage(teamid):
+def teamPageRedir(teamid):
+	loadTeam = Team.query.filter_by(tid = teamid).first()
+	teamName = loadTeam.teamname
+	teamName = teamName.replace(" ","-")
+	#return teamName
+	url = "/team/"+teamid+"/"+teamName
+	return redirect(url)
+@app.route("/team/<teamid>/<teamname>", methods=['GET'])
+def teamPage(teamid, teamname):
 	loadTeam = Team.query.filter_by(tid = teamid).first()
 	teamName = loadTeam.teamname
 	return render_template("teampage.html", pageTitle = "Team Page", Players=Players, teamid=teamid, Team=Team, db=db, teamName=teamName, list=list)
